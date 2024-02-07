@@ -89,5 +89,25 @@
     @include sm {
       display: none;
     }
+
+    .social-contact{
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      font-size: 25px;
+
+      .facebook{
+        color: #316FF6;
+      }
+      .youtube{
+        color: #CD201F;
+      }
+      .instagram{
+        color: #000;
+      }
+      .line{
+        color: #00C300;
+      }
+    }
   }
 }

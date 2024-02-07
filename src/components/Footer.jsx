@@ -1,5 +1,7 @@
 import "../styles/Footer.scss"
 import { LocalPhone, Email } from "@mui/icons-material"
+import { FaFacebookSquare, FaInstagram, FaLine } from "react-icons/fa";
+import { IoLogoYoutube } from "react-icons/io5";
 const Footer = () => {
   return (
     <div className="footer">
@@ -26,7 +28,16 @@ const Footer = () => {
           <Email />
           <p>KKAgency@support.com</p>
         </div>
-        <img src="/assets/payment.png" alt="payment" />
+        
+        <div>
+          <ul className="social-contact">
+            <li><a href="#" className="facebook"><FaFacebookSquare /></a></li>
+            <li><a href="#" className="youtube"><IoLogoYoutube /></a></li>
+            <li><a href="#" className="instagram"><FaInstagram /></a></li>
+            <li><a href="#" className="line"><FaLine /></a></li>
+          </ul>
+        </div>
+
       </div>
     </div>
   )
