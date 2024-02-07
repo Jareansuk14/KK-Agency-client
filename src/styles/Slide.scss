@@ -1,0 +1,46 @@
+@import "./variables.scss";
+@import "./breakpoints.scss";
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 50vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../public/assets/slide.jpg");
+  background-position: center top;
+  background-size: cover;
+
+  h1 {
+    padding: 40px 20px;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+  }
+
+  &_search {
+    margin-top: 10px;
+    border: 1px solid $grey;
+    border-radius: 30px;
+    height: 50px;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+
+    input {
+      color: #FFF;
+      background: transparent;
+      font-size: 20px;
+      height: 100%;
+      width: 100%;
+      border: none;
+      outline: none;
+    }
+
+    &:hover {
+      @include shadow;
+    }
+  }
+}
+

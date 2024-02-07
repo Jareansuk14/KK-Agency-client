@@ -1,0 +1,287 @@
+@import "./variables.scss";
+@import "./breakpoints.scss";
+
+.listing-details {
+  padding: 40px 130px 120px;
+
+  @include xl {
+    padding: 40px 80px 120px;
+  }
+
+  @include lg {
+    padding: 40px 50px 120px;
+  }
+
+  @include sm {
+    padding: 40px 20px 120px;
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include sm {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    h1 {
+      @include sm {
+        font-size: 26px;
+      }
+    }
+
+    .save {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+
+      p {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+      }
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+
+    .slider-container {
+      width: 100%;
+      height: 650px;
+      overflow: hidden;
+      border-radius: 20px;
+      margin-bottom: 10px;
+
+      @include xxl {
+        height: 650px;
+      }
+
+      @include xl {
+        height: 600px;
+      }
+
+      @include lg {
+        height: 550px;
+      }
+
+      @include ml {
+        height: 450px;
+      }
+
+      @include md {
+        height: 340px;
+      }
+
+      .slider {
+        display: flex;
+        transition: transform 0.5s ease;
+
+        .slide {
+          background: #000;
+          position: relative;
+          flex: 0 0 100%;
+          width: 100%;
+          height: 650px;
+          display: flex;
+          align-items: center;
+
+          @include xxl {
+            height: 650px;
+          }
+
+          @include xl {
+            height: 600px;
+          }
+
+          @include lg {
+            height: 550px;
+          }
+
+          @include ml {
+            height: 450px;
+          }
+
+          @include md {
+            height: 340px;
+          }
+
+          img {
+            max-width: 800px;
+            width: auto;
+            height: 100%;
+            filter: brightness(85%);
+
+            @include xxl {
+              max-width: 800px;
+            }
+
+            @include xl {
+              max-width: 700px;
+            }
+
+            @include lg {
+              max-width: 670px;
+            }
+
+            @include md {
+              max-width: 350px;
+            }
+
+            @include ss {
+              max-width: 320px;
+            }
+          }
+
+          .prev-button,
+          .next-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 20px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: 9999;
+
+            @include xxl {
+              padding: 20px;
+            }
+
+            @include lg {
+              padding: 15px;
+            }
+
+            @include md {
+              padding: 8px;
+            }
+
+
+            &:hover {
+              background-color: white;
+            }
+          }
+
+          .prev-button {
+            left: 10px;
+          }
+
+          .next-button {
+            right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+
+  hr {
+    margin: 20px 0;
+  }
+
+  .details {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    p {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      align-items: center;
+      width: 130px;
+      height: 70px;
+      border: 1px solid $grey;
+      border-radius: 10px;
+    }
+  }
+
+  .profile {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    img {
+      width: 60px;
+      height: 60px;
+      margin: 0;
+    }
+  }
+
+  p {
+    max-width: 800px;
+    margin-top: 20px;
+  }
+
+  .description {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .facilities {
+    display: flex;
+    justify-content: space-between;
+
+    @include lg {
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    .amenities {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 100px;
+      margin: 30px 0;
+      max-width: 700px;
+
+      @include sm {
+        grid-column-gap: 20px;
+      }
+
+      .facility {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+
+        &_icon {
+          font-size: 30px;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .contact {
+    ul {
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        color: #000;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 20px;
+      }
+    }
+  }
+
+}
