@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="https://kk-agency-client.vercel.app//login" element={<LoginPage />} />
+          <Route path="https://kk-agency-client.vercel.app/login" element={<LoginPage />} />
           <Route path="/create-listing" element={<CreateListing />} />
           <Route path="/properties/:listingId" element={<ListingDetails />} />
           <Route path="/properties/category/:category" element={<CategoryPage />} />
