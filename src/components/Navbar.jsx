@@ -61,7 +61,7 @@ const Navbar = () => {
             <Link to="/properties/type/เซ็งธุรกิจ" className="type-bar">เซ็งธุรกิจ</Link>
             <Link to="/properties/type/ที่ดิน" className="type-bar">ที่ดิน</Link>
             <Link to="/login">รายการโปรด</Link>
-            <Link to="https://kk-agency-client.vercel.app/login">เข้าสู่ระบบ</Link>
+            <Link to="/login">เข้าสู่ระบบ</Link>
             <Link to="/register">ลงทะเบียน</Link>
           </div>
         )}
