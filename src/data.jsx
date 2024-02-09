@@ -1,50 +1,16 @@
 import { LuTreePine, LuSofa } from "react-icons/lu";
 import { RiBuilding2Line, RiHotelLine } from "react-icons/ri";
-import { HiOutlineHomeModern, HiOutlineBuildingOffice2  } from "react-icons/hi2";
-import { TbBeach, TbSchool , TbBuildingEstate, TbAirConditioning, TbTreadmill } from "react-icons/tb";
-import {
-  GiBarn,
-  GiWindmill,
-  GiKeyCard
-} from "react-icons/gi";
-import {
-  FaSchool,
-  FaSwimmingPool,
-  FaShower,
-  FaFireExtinguisher,
-  FaUmbrellaBeach,
-  FaKey,
-  FaRegBuilding
-} from "react-icons/fa";
-import { FaPeopleRoof, FaKitchenSet, FaRegHospital  } from "react-icons/fa6";
-import {
-  BiSolidWasher,
-  BiSolidDryer,
-  BiSolidFirstAid,
-  BiWifi,
-  BiSolidFridge,
-  BiWorld,
-  BiHome,
-  BiSolidHotel
-} from "react-icons/bi";
-import { BsSnow, BsFillDoorOpenFill, BsPersonWorkspace } from "react-icons/bs";
+import { HiOutlineHomeModern, HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import { TbBeach, TbSchool, TbBuildingEstate, TbAirConditioning, TbTreadmill } from "react-icons/tb";
+import { GiBarn, GiWindmill, GiKeyCard } from "react-icons/gi";
+import { FaSchool, FaSwimmingPool, FaFireExtinguisher, FaRegBuilding } from "react-icons/fa";
+import { FaPeopleRoof, FaKitchenSet, FaRegHospital } from "react-icons/fa6";
+import { BiSolidWasher, BiSolidDryer, BiSolidFirstAid, BiWifi, BiSolidFridge, BiWorld, BiHome, BiSolidHotel } from "react-icons/bi";
+import { BsFillDoorOpenFill, } from "react-icons/bs";
 import { IoHome, IoHomeOutline, IoLocationSharp } from "react-icons/io5";
-import { MdOutlineFactory, MdMicrowave, MdBalcony, MdYard, MdPets } from "react-icons/md";
-import {
-  PiBathtubFill,
-  PiCoatHangerFill,
-  PiTelevisionFill,
-  PiAirplaneTiltBold   
-} from "react-icons/pi";
-import { TbIroning3 } from "react-icons/tb";
-import {
-  GiHeatHaze,
-  GiCctvCamera,
-  GiBarbecue,
-  GiToaster,
-  GiCampfire,
-  GiParkBench
-} from "react-icons/gi";
+import { MdOutlineFactory, MdMicrowave, MdPets } from "react-icons/md";
+import { PiBathtubFill, PiTelevisionFill, PiAirplaneTiltBold } from "react-icons/pi";
+import { GiCctvCamera, GiParkBench } from "react-icons/gi";
 import { AiFillCar } from "react-icons/ai";
 
 export const categories = [
@@ -67,13 +33,13 @@ export const categories = [
   {
     img: "assets/กังสดาล1.jpg",
     label: "มข - กังสดาล",
-    icon: <HiOutlineBuildingOffice2  />,
+    icon: <HiOutlineBuildingOffice2 />,
     description: "This property is modern!",
   },
   {
     img: "assets/โนนม่วง3.jpg",
     label: "มข - โนนม่วง",
-    icon: <TbSchool  />,
+    icon: <TbSchool />,
     description: "This property is in the countryside!",
   },
   {
@@ -97,7 +63,7 @@ export const categories = [
   {
     img: "assets/skiing_cat.jpg",
     label: "ม.ภาค - บ้านกอก",
-    icon: <FaSchool  />,
+    icon: <FaSchool />,
     description: "This property has skiing activies!",
   },
   {
@@ -127,7 +93,7 @@ export const categories = [
   {
     img: "assets/desert_cat.webp",
     label: "หนองหลุบ - บ้านทุ่ม",
-    icon: <HiOutlineHomeModern  />,
+    icon: <HiOutlineHomeModern />,
     description: "This property is in the desert!",
   },
   {
@@ -158,7 +124,7 @@ export const types = [
     icon: <TbBuildingEstate />,
   },
   {
-    name: "หอพัก/โรงแรม",
+    name: "หอพัก โรงแรม",
     icon: <BiSolidHotel />,
   },
   {

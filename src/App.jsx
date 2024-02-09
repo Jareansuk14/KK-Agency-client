@@ -8,6 +8,7 @@ import ListingDetails from "./pages/ListingDetails";
 import WishList from "./pages/WishList";
 import CategoryPage from "./pages/CategoryPage";
 import SearchPage from "./pages/SearchPage";
+import TypePage from "./pages/TypePage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/create-listing" element={<CreateListing />} />
           <Route path="/properties/:listingId" element={<ListingDetails />} />
           <Route path="/properties/category/:category" element={<CategoryPage />} />
+          <Route path="/properties/type/:type" element={<TypePage />} />
           <Route path="/properties/search/:search" element={<SearchPage />} />
           <Route path="/:userId/wishList" element={<WishList />} />
         </Routes>
