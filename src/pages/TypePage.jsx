@@ -17,7 +17,7 @@ const TypePage = () => {
 
   const getSearchListings = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/properties/type/${type}`, {
+      const response = await fetch(`https://kkagency-api.onrender.com/properties/type/${type}`, {
         method: "GET"
       })
 
