@@ -56,7 +56,7 @@ export const categories = [
   },
   {
     img: "assets/lake_cat.webp",
-    label: "โรงพยาบาลศูนย์ขอนแก่น",
+    label: "ร.พ.ศูนย์ขอนแก่น",
     icon: <FaRegHospital />,
     description: "This property is near a lake!",
   },
@@ -68,7 +68,7 @@ export const categories = [
   },
   {
     img: "assets/castle_cat.webp",
-    label: "ถนนเหล่านาดี - บ้านสะอาด",
+    label: "เหล่านาดี - บ้านสะอาด",
     icon: <MdOutlineFactory />,
     description: "This property is an ancient castle!",
   },
