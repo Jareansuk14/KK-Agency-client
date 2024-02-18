@@ -10,7 +10,13 @@ import { BedOutlined, ShowerOutlined, Restaurant, SquareFoot } from '@mui/icons-
 import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer"
-import { ArrowForwardIos, ArrowBackIosNew, } from "@mui/icons-material";
+
+// Import Swiper React components
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
 
 const ListingDetails = () => {
   const [loading, setLoading] = useState(true);
@@ -37,20 +43,6 @@ const ListingDetails = () => {
     getListingDetails();
   }, []);
 
-  /* SLIDER FOR IMAGES */
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const goToPrevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + listing.listingPhotoPaths.length) % listing.listingPhotoPaths.length
-    );
-  };
-
-  const goToNextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % listing.listingPhotoPaths.length);
-  };
-
   return loading ? (
     <Loader />
   ) : (
@@ -61,37 +53,23 @@ const ListingDetails = () => {
 
         <div className="container">
           <div className="slider-container">
-            <div
+            <Swiper
+              modules={[Navigation, Pagination]}
+              navigation
+              pagination={{
+                dynamicBullets: true,
+              }}
               className="slider"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {listing.listingPhotoPaths?.map((photo, index) => (
-                <div key={index} className="slide">
+                <SwiperSlide key={index} className="slide">
                   <img
                     src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
                     alt={`photo ${index + 1}`}
                   />
-                  <div
-                    className="prev-button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      goToPrevSlide(e);
-                    }}
-                  >
-                    <ArrowBackIosNew sx={{ fontSize: "15px" }} />
-                  </div>
-                  <div
-                    className="next-button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      goToNextSlide(e);
-                    }}
-                  >
-                    <ArrowForwardIos sx={{ fontSize: "15px" }} />
-                  </div>
-                </div>
+                </SwiperSlide>
               ))}
-            </div>
+            </Swiper>
           </div>
         </div>
 

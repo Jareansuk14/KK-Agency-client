@@ -52,6 +52,9 @@
     justify-content: center;
 
     .slider-container {
+      --swiper-navigation-size: 70px;
+      --swiper-navigation-color: #FFF;
+      --swiper-pagination-color: #FFF;
       width: 100%;
       height: 650px;
       overflow: hidden;
@@ -60,22 +63,27 @@
 
       @include xxl {
         height: 650px;
+        --swiper-navigation-size: 70px;
       }
 
       @include xl {
         height: 600px;
+        --swiper-navigation-size: 60px;
       }
 
       @include lg {
         height: 550px;
+        --swiper-navigation-size: 50px;
       }
 
       @include ml {
         height: 450px;
+        --swiper-navigation-size: 40px;
       }
 
       @include md {
         height: 340px;
+        --swiper-navigation-size: 30px;
       }
 
       .slider {
@@ -136,47 +144,6 @@
             @include ss {
               max-width: 320px;
             }
-          }
-
-          .prev-button,
-          .next-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 20px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(255, 255, 255, 0.7);
-            z-index: 9999;
-
-            @include xxl {
-              padding: 20px;
-            }
-
-            @include lg {
-              padding: 15px;
-            }
-
-            @include md {
-              padding: 10px;
-            }
-
-
-            &:hover {
-              background-color: white;
-            }
-          }
-
-          .prev-button {
-            left: 10px;
-          }
-
-          .next-button {
-            right: 10px;
           }
         }
       }
