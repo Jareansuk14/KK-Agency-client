@@ -10,7 +10,41 @@
     background-color: $lightgrey;
 
     &.swiper {
-        padding: 20px 20px;
+        --swiper-navigation-size: 60px;
+        --swiper-navigation-top-offset: 50%;
+        --swiper-navigation-sides-offset: 10px;
+        --swiper-navigation-color: #000;
+        padding: 20px 45px;
+
+        @include xxl {
+            --swiper-navigation-size: 50px;
+            --swiper-navigation-sides-offset: 0px;
+            padding: 20px 40px;
+        }
+
+        @include xl {
+            --swiper-navigation-size: 50px;
+            --swiper-navigation-sides-offset: 0px;
+            padding: 20px 35px;
+        }
+
+        @include lg {
+            --swiper-navigation-size: 50px;
+            --swiper-navigation-sides-offset: 0px;
+            padding: 20px 30px;
+        }
+
+        @include ml {
+            --swiper-navigation-size: 40px;
+            --swiper-navigation-sides-offset: 0px;
+            padding: 20px 25px;
+        }
+
+        @include md {
+            --swiper-navigation-size: 30px;
+            --swiper-navigation-sides-offset: 0px;
+            padding: 20px 20px;
+        }
 
         .category {
             border: 1px solid #000;

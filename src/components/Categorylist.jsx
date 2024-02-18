@@ -6,8 +6,9 @@ import { setListings } from "../redux/state";
 
 // Import Swiper React components
 import 'swiper/css';
+import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 
 
 export default () => {
@@ -39,9 +40,10 @@ export default () => {
         <div className="cate-swipe">
             <Swiper
                 className="swiper-container"
-                spaceBetween={15}
+                spaceBetween={20}
                 slidesPerView={"3"}
-                modules={[Autoplay]}
+                modules={[Autoplay, Navigation]}
+                navigation
                 autoplay={{
                     delay: 2500,
                     disableOnInteraction: true,
@@ -53,19 +55,19 @@ export default () => {
                     },
                     768: {
                         slidesPerView: 5,
-                        spaceBetween: 20,
+                        spaceBetween: 25,
                     },
                     1024: {
                         slidesPerView: 6,
-                        spaceBetween: 30,
+                        spaceBetween: 35,
                     },
                     1440: {
                         slidesPerView: 8,
-                        spaceBetween: 30,
+                        spaceBetween: 40,
                     },
                     1600: {
                         slidesPerView: 12,
-                        spaceBetween: 30,
+                        spaceBetween: 45,
                     },
                 }}
             >
