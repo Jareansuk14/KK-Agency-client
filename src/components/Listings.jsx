@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { categories } from "../data";
 import "../styles/Listings.scss";
 import ListingCard from "./ListingCard";
 import Loader from "./Loader";
@@ -38,20 +37,7 @@ const Listings = () => {
   }, [selectedCategory]);
 
   return (
-    <>
-      <div className="category-list">
-        {categories?.map((category, index) => (
-          <div
-            className={`category ${category.label === selectedCategory ? "selected" : ""}`}
-            key={index}
-            onClick={() => setSelectedCategory(category.label)}
-          >
-            <div className="category_icon">{category.icon}</div>
-            <p>{category.label}</p>
-          </div>
-        ))}
-      </div>
-
+    <div className="listings-container">
       {loading ? (
         <Loader />
       ) : (
@@ -91,7 +77,7 @@ const Listings = () => {
           )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 
