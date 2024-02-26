@@ -1,10 +1,8 @@
 import { useState } from "react";
 import "../styles/ListingCard.scss";
-import {
-  ArrowForwardIos,
-  ArrowBackIosNew,
-  Favorite,
-} from "@mui/icons-material";
+import { ArrowForwardIos, ArrowBackIosNew, } from "@mui/icons-material";
+import BookmarkAddRoundedIcon from '@mui/icons-material/BookmarkAddRounded';
+import BookmarkAddedRoundedIcon from '@mui/icons-material/BookmarkAddedRounded';
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setWishList } from "../redux/state";
@@ -20,6 +18,7 @@ const ListingCard = ({
   category,
   type,
   contract,
+  statusroom,
   price,
 }) => {
   /* SLIDER FOR IMAGES */
@@ -110,10 +109,15 @@ const ListingCard = ({
       <>
         <p>{type}</p>
         <div className="price-contract">
-          <div><span>{price}฿</span> ต่อเดือน</div> 
+          <div><span>{price}฿</span> ต่อเดือน</div>
           <div><h6>( สัญญาขั้นต่ำ {contract} เดือน )</h6></div>
         </div>
       </>
+
+      <div className="statusroom">
+        <p>{statusroom}</p>
+      </div>
+
       <button
         className="favorite"
         onClick={(e) => {
@@ -123,9 +127,9 @@ const ListingCard = ({
         disabled={!user}
       >
         {isLiked ? (
-          <Favorite sx={{ color: "red" }} />
+          <BookmarkAddedRoundedIcon sx={{ fontSize: 30, color: "#9cf80e" }} />
         ) : (
-          <Favorite sx={{ color: "white" }} />
+          <BookmarkAddRoundedIcon sx={{ fontSize: 30, color: "#F7F8F8" }} />
         )}
       </button>
     </div>

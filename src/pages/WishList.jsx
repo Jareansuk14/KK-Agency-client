@@ -16,26 +16,36 @@ const WishList = () => {
           ({
             _id,
             creator,
+            aptSuite,
             listingPhotoPaths,
+            bedroomCount,
+            bathroomCount,
+            area,
             city,
             province,
             country,
             category,
             type,
+            contract,
+            statusroom,
             price,
-            booking = false,
           }) => (
             <ListingCard
               listingId={_id}
               creator={creator}
+              aptSuite={aptSuite}
               listingPhotoPaths={listingPhotoPaths}
+              bedroomCount={bedroomCount}
+              bathroomCount={bathroomCount}
+              area={area}
               city={city}
               province={province}
               country={country}
               category={category}
               type={type}
+              contract={contract}
+              statusroom={statusroom}
               price={price}
-              booking={booking}
             />
           )
         )}

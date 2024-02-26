@@ -103,7 +103,7 @@ const ListingDetails = () => {
         <p className="description">{listing.description}</p>
         <hr />
 
-        <h3>{listing.highlight}</h3>
+        <h3>{listing.highlight} ({listing.statusroom})</h3>
         <p className="description">{listing.highlightDesc}</p>
         <h4 className="contract">( สัญญาขั้นต่ำ {listing.contract} เดือน )</h4>
         <hr />

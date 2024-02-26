@@ -57,6 +57,7 @@ const Listings = () => {
               category,
               type,
               contract,
+              statusroom,
               price,
             }) => (
               <ListingCard
@@ -73,6 +74,7 @@ const Listings = () => {
                 category={category}
                 type={type}
                 contract={contract}
+                statusroom={statusroom}
                 price={price}
               />
             )

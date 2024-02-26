@@ -13,7 +13,7 @@
     color: $blue;
   }
 
-  .area{
+  .area {
     input {
       border: 1px solid $grey;
       padding: 15px 30px;
@@ -177,6 +177,7 @@
         font-weight: 700;
         margin: 20px 0 10px;
       }
+
       input {
         border: 1px solid $grey;
         padding: 15px 30px;
@@ -400,12 +401,14 @@
         margin-right: 20px;
       }
 
-      .contract {
+      .contract,
+      .statusroom {
         width: 250px;
-    }
+      }
 
       .price {
         width: 200px;
+        margin-right: 10px;
       }
     }
   }

@@ -83,6 +83,7 @@ const CreateListing = () => {
     highlight: "",
     highlightDesc: "",
     contract: "",
+    statusroom: "",
     price: "",
   });
 
@@ -123,6 +124,7 @@ const CreateListing = () => {
       listingForm.append("highlight", formDescription.highlight);
       listingForm.append("highlightDesc", formDescription.highlightDesc);
       listingForm.append("contract", formDescription.contract);
+      listingForm.append("statusroom", formDescription.statusroom);
       listingForm.append("price", formDescription.price);
 
       /* Append each selected photos to the FormData object */
@@ -514,6 +516,7 @@ const CreateListing = () => {
                 onChange={handleChangeDescription}
                 required
               />
+              
               <p>สัญญาขั้นต่ำ (เดือน)</p>
               <Cleave
                 placeholder="12"
@@ -527,6 +530,18 @@ const CreateListing = () => {
                 className="contract"
                 required
               />
+
+              <p>เข้าอยู่ได้เมื่อไหร่</p>
+              <input
+                type="text"
+                placeholder="ว่างพร้อมเข้าอยู่"
+                name="statusroom"
+                value={formDescription.statusroom}
+                onChange={handleChangeDescription}
+                className="statusroom"
+                required
+              />
+
               <p>ตั้งราคาให้กับที่พักของคุณ</p>
               <span>฿</span>
               <Cleave
