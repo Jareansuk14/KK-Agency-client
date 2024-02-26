@@ -57,6 +57,7 @@ const CategoryPage = () => {
             country,
             category,
             type,
+            contract,
             price,
           }) => (
             <ListingCard
@@ -72,6 +73,7 @@ const CategoryPage = () => {
               country={country}
               category={category}
               type={type}
+              contract={contract}
               price={price}
             />
           )

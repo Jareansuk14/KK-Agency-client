@@ -52,6 +52,7 @@ const TypePage = () => {
             country,
             category,
             type,
+            contract,
             price,
           }) => (
             <ListingCard
@@ -67,6 +68,7 @@ const TypePage = () => {
               country={country}
               category={category}
               type={type}
+              contract={contract}
               price={price}
             />
           )

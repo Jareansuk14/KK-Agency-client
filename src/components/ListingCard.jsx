@@ -19,6 +19,7 @@ const ListingCard = ({
   area,
   category,
   type,
+  contract,
   price,
 }) => {
   /* SLIDER FOR IMAGES */
@@ -108,9 +109,10 @@ const ListingCard = ({
       <p>{category}</p>
       <>
         <p>{type}</p>
-        <p>
-          <span>{price}฿</span> ต่อเดือน
-        </p>
+        <div className="price-contract">
+          <div><span>{price}฿</span> ต่อเดือน</div> 
+          <div><h6>( สัญญาขั้นต่ำ {contract} เดือน )</h6></div>
+        </div>
       </>
       <button
         className="favorite"

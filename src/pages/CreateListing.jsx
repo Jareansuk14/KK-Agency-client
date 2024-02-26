@@ -1,9 +1,8 @@
 import "../styles/CreateListing.scss";
 import Navbar from "../components/Navbar";
 import { categories, types, facilities } from "../data";
-
+import Cleave from 'cleave.js/react';
 import { RemoveCircleOutline, AddCircleOutline } from "@mui/icons-material";
-// import variables from "../styles/variables.scss";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { IoIosImages } from "react-icons/io";
 import { useState } from "react";
@@ -83,7 +82,8 @@ const CreateListing = () => {
     description: "",
     highlight: "",
     highlightDesc: "",
-    price: 0,
+    contract: "",
+    price: "",
   });
 
   const handleChangeDescription = (e) => {
@@ -122,6 +122,7 @@ const CreateListing = () => {
       listingForm.append("description", formDescription.description);
       listingForm.append("highlight", formDescription.highlight);
       listingForm.append("highlightDesc", formDescription.highlightDesc);
+      listingForm.append("contract", formDescription.contract);
       listingForm.append("price", formDescription.price);
 
       /* Append each selected photos to the FormData object */
@@ -361,9 +362,12 @@ const CreateListing = () => {
 
             <div className="area">
               <h3>พื้นที่ใช้สอย (ตร.ม.)</h3>
-              <input
-                type="number"
+              <Cleave
                 placeholder="พื้นที่ใช้สอย (ตร.ม.)"
+                options={{
+                  numeral: true,
+                  numeralThousandsGroupStyle: 'thousand'
+                }}
                 name="area"
                 value={formLocation.area}
                 onChange={handleChangeLocation}
@@ -510,11 +514,27 @@ const CreateListing = () => {
                 onChange={handleChangeDescription}
                 required
               />
+              <p>สัญญาขั้นต่ำ (เดือน)</p>
+              <Cleave
+                placeholder="12"
+                options={{
+                  numeral: true,
+                  numeralThousandsGroupStyle: 'thousand'
+                }}
+                name="contract"
+                value={formDescription.contract}
+                onChange={handleChangeDescription}
+                className="contract"
+                required
+              />
               <p>ตั้งราคาให้กับที่พักของคุณ</p>
               <span>฿</span>
-              <input
-                type="text"
-                placeholder="100"
+              <Cleave
+                placeholder="ราคา"
+                options={{
+                  numeral: true,
+                  numeralThousandsGroupStyle: 'thousand'
+                }}
                 name="price"
                 value={formDescription.price}
                 onChange={handleChangeDescription}

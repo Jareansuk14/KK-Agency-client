@@ -105,6 +105,7 @@ const ListingDetails = () => {
 
         <h3>{listing.highlight}</h3>
         <p className="description">{listing.highlightDesc}</p>
+        <h4 className="contract">( สัญญาขั้นต่ำ {listing.contract} เดือน )</h4>
         <hr />
 
         <div className="facilities">
