@@ -87,14 +87,6 @@ export default () => {
                         </div>
                         <p>{category.label}</p>
                     </SwiperSlide>
-                    // <SwiperSlide
-                    //     className={`category ${category.label === selectedCategory ? "selected" : ""}`}
-                    //     key={index}
-                    //     onClick={() => setSelectedCategory(category.label)}
-                    // >
-                    //     <div className="category_icon">{category.icon}</div>
-                    //     <p>{category.label}</p>
-                    // </SwiperSlide>
                 ))}
             </Swiper>
         </div>

@@ -41,7 +41,7 @@ const CategoryPage = () => {
   ) : (
     <>
       <Navbar />
-      <h1 className="title-list">{category} listings</h1>
+      <h1 className="title-list">{category}</h1>
       <div className="list">
         {listings?.map(
           ({
