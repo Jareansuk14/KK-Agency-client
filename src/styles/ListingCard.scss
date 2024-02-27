@@ -1,4 +1,5 @@
 @import "./variables.scss";
+@import "./breakpoints.scss";
 
 .listing-card {
   position: relative;
@@ -12,10 +13,31 @@
   }
 
   .slider-container {
+    display: block;
     width: 300px;
     overflow: hidden;
     border-radius: 10px;
     margin-bottom: 10px;
+
+    @include xxl {
+      display: block;
+    }
+
+    @include xl {
+      display: none;
+    }
+
+    @include lg {
+      display: none;
+    }
+
+    @include ml {
+      display: none;
+    }
+
+    @include md {
+      display: none;
+    }
 
     .slider {
       display: flex;
@@ -66,6 +88,57 @@
     }
   }
 
+
+  .slider-container-m {
+    --swiper-navigation-size: 40px;
+    --swiper-pagination-color: #FFF;
+    display: none;
+    width: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+    @include xxl {
+      display: none;
+    }
+
+    @include xl {
+      display: block;
+    }
+
+    @include lg {
+      display: block;
+    }
+
+    @include ml {
+      display: block;
+    }
+
+    @include md {
+      display: block;
+    }
+
+    .slider-m {
+      display: flex;
+      transition: transform 0.5s ease;
+
+      .slide-m {
+        position: relative;
+        flex: 0 0 100%;
+        width: 100%;
+        height: 270px;
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 100%;
+          height: 100%;
+          filter: brightness(85%);
+        }
+      }
+    }
+  }
+
   h5 {
     font-size: 13px;
     font-weight: 700;
@@ -85,7 +158,7 @@
     font-size: 18px;
   }
 
-  .price-contract{
+  .price-contract {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -93,7 +166,7 @@
 
   .statusroom {
     padding: 10px 20px;
-    box-shadow:  0px 2px 5px #2d2c2c;
+    box-shadow: 0px 2px 5px #2d2c2c;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     position: absolute;
