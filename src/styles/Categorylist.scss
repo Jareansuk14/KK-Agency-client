@@ -13,7 +13,7 @@
         --swiper-navigation-size: 50px;
         --swiper-navigation-top-offset: 50%;
         --swiper-navigation-sides-offset: 10px;
-        --swiper-navigation-color: #000;
+        --swiper-navigation-color: #24355A;
         padding: 20px 45px;
 
         @include xxl {
@@ -47,12 +47,12 @@
         }
 
         .category {
-            border: 1px solid #000;
+            border: 1px solid $blue;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: #000;
+            color: $darkblue;
             cursor: pointer;
 
             &_icon {

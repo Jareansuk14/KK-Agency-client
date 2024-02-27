@@ -10,7 +10,7 @@ const WishList = () => {
   return (
     <>
       <Navbar />
-      <h1 className="title-list">Your Wish List</h1>
+      <h1 className="title-list">รายการโปรด</h1>
       <div className="list">
         {wishList?.map(
           ({

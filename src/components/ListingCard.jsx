@@ -127,9 +127,9 @@ const ListingCard = ({
         disabled={!user}
       >
         {isLiked ? (
-          <BookmarkAddedRoundedIcon sx={{ fontSize: 30, color: "#9cf80e" }} />
+          <BookmarkAddedRoundedIcon sx={{ fontSize: 35, color: "#9cf80e" }} />
         ) : (
-          <BookmarkAddRoundedIcon sx={{ fontSize: 30, color: "#F7F8F8" }} />
+          <BookmarkAddRoundedIcon sx={{ fontSize: 35, color: "#F7F8F8" }} />
         )}
       </button>
     </div>
