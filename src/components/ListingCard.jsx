@@ -74,7 +74,7 @@ const ListingCard = ({
         navigate(`/properties/${listingId}`);
       }}
     >
-      <div className="slider-container">
+      {/* <div className="slider-container">
         <div
           className="slider"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -106,7 +106,7 @@ const ListingCard = ({
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <div className="slider-container-m">
         <Swiper
