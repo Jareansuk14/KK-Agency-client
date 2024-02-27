@@ -1,6 +1,6 @@
-// import { useState } from "react";
+import { useState } from "react";
 import "../styles/ListingCard.scss";
-// import { ArrowForwardIos, ArrowBackIosNew, } from "@mui/icons-material";
+import { ArrowForwardIos, ArrowBackIosNew, } from "@mui/icons-material";
 import BookmarkAddRoundedIcon from '@mui/icons-material/BookmarkAddRounded';
 import BookmarkAddedRoundedIcon from '@mui/icons-material/BookmarkAddedRounded';
 import { useNavigate } from "react-router-dom";
@@ -29,18 +29,18 @@ const ListingCard = ({
   price,
 }) => {
   /* SLIDER FOR IMAGES */
-  // const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // const goToPrevSlide = () => {
-  //   setCurrentIndex(
-  //     (prevIndex) =>
-  //       (prevIndex - 1 + listingPhotoPaths.length) % listingPhotoPaths.length
-  //   );
-  // };
+  const goToPrevSlide = () => {
+    setCurrentIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + listingPhotoPaths.length) % listingPhotoPaths.length
+    );
+  };
 
-  // const goToNextSlide = () => {
-  //   setCurrentIndex((prevIndex) => (prevIndex + 1) % listingPhotoPaths.length);
-  // };
+  const goToNextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % listingPhotoPaths.length);
+  };
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
