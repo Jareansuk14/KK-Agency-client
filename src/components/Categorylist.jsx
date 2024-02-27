@@ -1,8 +1,5 @@
-import { useEffect, useState } from "react";
 import { categories } from "../data";
 import "../styles/Categorylist.scss";
-import { useDispatch } from "react-redux";
-import { setListings } from "../redux/state";
 import { useNavigate } from "react-router-dom";
 
 // Import Swiper React components
@@ -14,30 +11,6 @@ import { Autoplay, Navigation } from 'swiper/modules';
 
 export default () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const [selectedCategory, setSelectedCategory] = useState("ทั้งหมด");
-    const getFeedListings = async () => {
-        try {
-            const response = await fetch(
-                selectedCategory !== "ทั้งหมด"
-                    ? `https://kkagency-api.onrender.com/properties?category=${selectedCategory}`
-                    : "https://kkagency-api.onrender.com/properties",
-                {
-                    method: "GET",
-                }
-            );
-
-            const data = await response.json();
-            dispatch(setListings({ listings: data }));
-            setLoading(false);
-        } catch (err) {
-            console.log("Fetch Listings Failed", err.message);
-        }
-    };
-
-    useEffect(() => {
-        getFeedListings();
-    }, [selectedCategory]);
     return (
         <div className="cate-swipe">
             <Swiper
@@ -75,7 +48,7 @@ export default () => {
             >
                 {categories?.slice(1, 16).map((category, index) => (
                     <SwiperSlide
-                        className={`category ${category.label === selectedCategory ? "selected" : ""}`}
+                        className= "category"
                         key={index}
                         onClick={() => {
                             navigate(`/properties/category/${category.label}`);
