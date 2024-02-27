@@ -7,6 +7,7 @@ import Loader from "../components/Loader"
 import Navbar from "../components/Navbar";
 import ListingCard from "../components/ListingCard";
 import Footer from "../components/Footer"
+import Categorylist from "../components/Categorylist";
 
 const SearchPage = () => {
   const [loading, setLoading] = useState(true)
@@ -36,7 +37,8 @@ const SearchPage = () => {
   return loading ? <Loader /> : (
     <>
       <Navbar />
-      <h1 className="title-list">{search}</h1>
+      <Categorylist />
+      <h1 className="title-list">ผลการค้นหา : {search}</h1>
       <div className="list">
         {listings?.map(
           ({
