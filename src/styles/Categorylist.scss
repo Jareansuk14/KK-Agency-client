@@ -7,7 +7,7 @@
 // }
 
 .swiper-container {
-    background-color: $lightgrey;
+    box-shadow: 2px 4px 8px 0 rgba(56, 75, 108, 0.1);
 
     &.swiper {
         --swiper-navigation-size: 50px;
