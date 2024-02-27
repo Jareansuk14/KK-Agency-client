@@ -8,11 +8,8 @@ import { setListings } from "../redux/state";
 const Listings = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
-
   const [selectedCategory, setSelectedCategory] = useState("ทั้งหมด");
-
   const listings = useSelector((state) => state.listings);
-
   const getFeedListings = async () => {
     try {
       const response = await fetch(
@@ -38,6 +35,7 @@ const Listings = () => {
 
   return (
     <div className="listings-container">
+      <h1 className="title-promo">รวมประกาศให้เช่าในขอนแก่น</h1>
       {loading ? (
         <Loader />
       ) : (
