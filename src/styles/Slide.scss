@@ -11,6 +11,26 @@
   background-position: center top;
   background-size: cover;
 
+  @include xxl {
+    height: 50vh;
+  }
+
+  @include xl {
+    height: 600px;
+  }
+
+  @include lg {
+    height: 500px;
+  }
+
+  @include ml {
+    height: 450px;
+  }
+
+  @include md {
+    height: 410px;
+  }
+
   h1 {
     padding: 40px 20px;
     font-size: 40px;
