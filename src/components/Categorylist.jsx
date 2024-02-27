@@ -3,6 +3,7 @@ import { categories } from "../data";
 import "../styles/Categorylist.scss";
 import { useDispatch } from "react-redux";
 import { setListings } from "../redux/state";
+import { useNavigate } from "react-router-dom";
 
 // Import Swiper React components
 import 'swiper/css';
@@ -12,6 +13,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 
 
 export default () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [selectedCategory, setSelectedCategory] = useState("ทั้งหมด");
     const getFeedListings = async () => {
@@ -75,11 +77,24 @@ export default () => {
                     <SwiperSlide
                         className={`category ${category.label === selectedCategory ? "selected" : ""}`}
                         key={index}
-                        onClick={() => setSelectedCategory(category.label)}
                     >
-                        <div className="category_icon">{category.icon}</div>
+                        <div
+                            className="category_icon"
+                            onClick={() => {
+                                navigate(`/properties/category/${category.label}`);
+                            }}
+                        >{category.icon}
+                        </div>
                         <p>{category.label}</p>
                     </SwiperSlide>
+                    // <SwiperSlide
+                    //     className={`category ${category.label === selectedCategory ? "selected" : ""}`}
+                    //     key={index}
+                    //     onClick={() => setSelectedCategory(category.label)}
+                    // >
+                    //     <div className="category_icon">{category.icon}</div>
+                    //     <p>{category.label}</p>
+                    // </SwiperSlide>
                 ))}
             </Swiper>
         </div>
