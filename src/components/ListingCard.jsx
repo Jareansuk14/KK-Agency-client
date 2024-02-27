@@ -96,8 +96,7 @@ const ListingCard = ({
         </div>
       </div>
 
-
-      {/* <div className="slider-container">
+      <div className="slider-container">
         <div
           className="slider"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -129,7 +128,7 @@ const ListingCard = ({
             </div>
           ))}
         </div>
-      </div> */}
+      </div>
 
       <h3>
         {aptSuite}
