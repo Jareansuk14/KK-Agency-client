@@ -20,8 +20,8 @@
   }
 
   .type-menu {
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -54,16 +54,6 @@
     .type-menu-bar:hover:after {
       width: 100%;
       left: 0;
-    }
-
-    @include xxl {
-      margin-left: 50px;
-      margin-right: 50px;
-    }
-
-    @include xl {
-      margin-left: 20px;
-      margin-right: 20px;
     }
 
     @include ml {
