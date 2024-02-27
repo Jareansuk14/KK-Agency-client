@@ -74,28 +74,7 @@ const ListingCard = ({
         navigate(`/properties/${listingId}`);
       }}
     >
-
-      <div className="container">
-        <div className="slider-container">
-          <Swiper
-            modules={[Pagination]}
-            pagination={{
-              dynamicBullets: true,
-            }}
-            className="slider"
-          >
-            {listingPhotoPaths?.map((photo, index) => (
-              <SwiperSlide key={index} className="slide">
-                <img
-                  src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
-                  alt={`photo ${index + 1}`}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
-
+      
       <div className="slider-container">
         <div
           className="slider"
@@ -127,6 +106,27 @@ const ListingCard = ({
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div className="container">
+        <div className="slider-container">
+          <Swiper
+            modules={[Pagination]}
+            pagination={{
+              dynamicBullets: true,
+            }}
+            className="slider"
+          >
+            {listingPhotoPaths?.map((photo, index) => (
+              <SwiperSlide key={index} className="slide">
+                <img
+                  src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
+                  alt={`photo ${index + 1}`}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
 
