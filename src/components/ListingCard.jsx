@@ -74,7 +74,7 @@ const ListingCard = ({
         navigate(`/properties/${listingId}`);
       }}
     >
-      {/* <div className="slider-container">
+      <div className="slider-container">
         <div
           className="slider"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -106,9 +106,9 @@ const ListingCard = ({
             </div>
           ))}
         </div>
-      </div> */}
+      </div>
 
-      <div className="slider-container-m">
+      {/* <div className="slider-container-m">
         <Swiper
           modules={[Pagination]}
           pagination={{
@@ -125,7 +125,7 @@ const ListingCard = ({
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </div> */}
 
       <h3>
         {aptSuite}
