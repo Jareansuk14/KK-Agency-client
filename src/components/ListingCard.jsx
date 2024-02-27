@@ -7,13 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setWishList } from "../redux/state";
 
-// Import Swiper React components
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-
 const ListingCard = ({
   listingId,
   creator,
@@ -107,25 +100,6 @@ const ListingCard = ({
           ))}
         </div>
       </div>
-
-      {/* <div className="slider-container-m">
-        <Swiper
-          modules={[Pagination]}
-          pagination={{
-            dynamicBullets: true,
-          }}
-          className="slider-m"
-        >
-          {listingPhotoPaths?.map((photo, index) => (
-            <SwiperSlide key={index} className="slide-m">
-              <img
-                src={`http://localhost:3001/${photo?.replace("public", "")}`}
-                alt={`photo ${index + 1}`}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div> */}
 
       <h3>
         {aptSuite}
