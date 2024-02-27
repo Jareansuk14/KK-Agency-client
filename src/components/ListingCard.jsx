@@ -1,11 +1,18 @@
-import { useState } from "react";
+// import { useState } from "react";
 import "../styles/ListingCard.scss";
-import { ArrowForwardIos, ArrowBackIosNew, } from "@mui/icons-material";
+// import { ArrowForwardIos, ArrowBackIosNew, } from "@mui/icons-material";
 import BookmarkAddRoundedIcon from '@mui/icons-material/BookmarkAddRounded';
 import BookmarkAddedRoundedIcon from '@mui/icons-material/BookmarkAddedRounded';
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setWishList } from "../redux/state";
+
+// Import Swiper React components
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
 
 const ListingCard = ({
   listingId,
@@ -22,18 +29,18 @@ const ListingCard = ({
   price,
 }) => {
   /* SLIDER FOR IMAGES */
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // const [currentIndex, setCurrentIndex] = useState(0);
 
-  const goToPrevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + listingPhotoPaths.length) % listingPhotoPaths.length
-    );
-  };
+  // const goToPrevSlide = () => {
+  //   setCurrentIndex(
+  //     (prevIndex) =>
+  //       (prevIndex - 1 + listingPhotoPaths.length) % listingPhotoPaths.length
+  //   );
+  // };
 
-  const goToNextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % listingPhotoPaths.length);
-  };
+  // const goToNextSlide = () => {
+  //   setCurrentIndex((prevIndex) => (prevIndex + 1) % listingPhotoPaths.length);
+  // };
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -67,7 +74,30 @@ const ListingCard = ({
         navigate(`/properties/${listingId}`);
       }}
     >
-      <div className="slider-container">
+
+      <div className="container">
+        <div className="slider-container">
+          <Swiper
+            modules={[Pagination]}
+            pagination={{
+              dynamicBullets: true,
+            }}
+            className="slider"
+          >
+            {listingPhotoPaths?.map((photo, index) => (
+              <SwiperSlide key={index} className="slide">
+                <img
+                  src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
+                  alt={`photo ${index + 1}`}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+
+
+      {/* <div className="slider-container">
         <div
           className="slider"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -99,7 +129,7 @@ const ListingCard = ({
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <h3>
         {aptSuite}
