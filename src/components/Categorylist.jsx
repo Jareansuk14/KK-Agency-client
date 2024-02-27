@@ -77,14 +77,11 @@ export default () => {
                     <SwiperSlide
                         className={`category ${category.label === selectedCategory ? "selected" : ""}`}
                         key={index}
+                        onClick={() => {
+                            navigate(`/properties/category/${category.label}`);
+                        }}
                     >
-                        <div
-                            className="category_icon"
-                            onClick={() => {
-                                navigate(`/properties/category/${category.label}`);
-                            }}
-                        >{category.icon}
-                        </div>
+                        <div className="category_icon">{category.icon}</div>
                         <p>{category.label}</p>
                     </SwiperSlide>
                 ))}
