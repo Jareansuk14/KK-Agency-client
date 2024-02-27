@@ -73,7 +73,7 @@ export default () => {
                     },
                 }}
             >
-                {categories?.map((category, index) => (
+                {categories?.slice(1, 16).map((category, index) => (
                     <SwiperSlide
                         className={`category ${category.label === selectedCategory ? "selected" : ""}`}
                         key={index}

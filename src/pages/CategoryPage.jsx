@@ -7,14 +7,13 @@ import { setListings } from "../redux/state";
 import Loader from "../components/Loader";
 import ListingCard from "../components/ListingCard";
 import Footer from "../components/Footer"
+import Categorylist from "../components/Categorylist";
 
 const CategoryPage = () => {
   const [loading, setLoading] = useState(true);
   const { category } = useParams()
-
   const dispatch = useDispatch()
   const listings = useSelector((state) => state.listings);
-
   const getFeedListings = async () => {
     try {
       const response = await fetch(
@@ -41,6 +40,7 @@ const CategoryPage = () => {
   ) : (
     <>
       <Navbar />
+      <Categorylist />
       <h1 className="title-list">{category}</h1>
       <div className="list">
         {listings?.map(
