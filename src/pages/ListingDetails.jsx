@@ -73,7 +73,7 @@ const ListingDetails = () => {
           </div>
         </div>
 
-        <h2>
+        <h2 className="title-hero">
           {listing.title}
         </h2>
 

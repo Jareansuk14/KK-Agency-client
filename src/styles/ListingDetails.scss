@@ -62,17 +62,17 @@
       margin-bottom: 10px;
 
       @include xxl {
-        height: 650px;
+        height: 550px;
         --swiper-navigation-size: 70px;
       }
 
       @include xl {
-        height: 600px;
+        height: 550px;
         --swiper-navigation-size: 60px;
       }
 
       @include lg {
-        height: 550px;
+        height: 500px;
         --swiper-navigation-size: 50px;
       }
 
@@ -100,15 +100,15 @@
           align-items: center;
 
           @include xxl {
-            height: 650px;
+            height: 550px;
           }
 
           @include xl {
-            height: 600px;
+            height: 550px;
           }
 
           @include lg {
-            height: 550px;
+            height: 500px;
           }
 
           @include ml {
@@ -150,6 +150,18 @@
     }
   }
 
+  .title-hero {
+    display: flex;
+    color: $blue;
+
+    @include ml {
+      font-size: 18px;
+    }
+
+    @include sm {
+      font-size: 15px;
+    }
+  }
 
   hr {
     margin: 20px 0;

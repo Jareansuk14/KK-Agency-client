@@ -24,6 +24,10 @@ export default () => {
                     disableOnInteraction: true,
                 }}
                 breakpoints={{
+                    360:{
+                        slidesPerView: 3,
+                        spaceBetween: 10,
+                    },
                     640: {
                         slidesPerView: 4,
                         spaceBetween: 20,

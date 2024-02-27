@@ -36,6 +36,10 @@
     font-size: 40px;
     text-align: center;
     color: white;
+
+    @include md {
+      font-size: 30px;
+    }
   }
 
   &_search {
