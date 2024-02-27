@@ -74,7 +74,7 @@ const ListingCard = ({
         navigate(`/properties/${listingId}`);
       }}
     >
-      
+
       <div className="slider-container">
         <div
           className="slider"
@@ -110,16 +110,16 @@ const ListingCard = ({
       </div>
 
       <div className="container">
-        <div className="slider-container">
+        <div className="slider-container-m">
           <Swiper
             modules={[Pagination]}
             pagination={{
               dynamicBullets: true,
             }}
-            className="slider"
+            className="slider-m"
           >
             {listingPhotoPaths?.map((photo, index) => (
-              <SwiperSlide key={index} className="slide">
+              <SwiperSlide key={index} className="slide-m">
                 <img
                   src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
                   alt={`photo ${index + 1}`}
