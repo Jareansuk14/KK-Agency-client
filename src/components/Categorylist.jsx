@@ -15,7 +15,7 @@ export default () => {
         <div className="cate-swipe">
             <Swiper
                 className="swiper-container"
-                spaceBetween={20}
+                spaceBetween={10}
                 slidesPerView={"3"}
                 modules={[Autoplay, Navigation]}
                 navigation
@@ -26,7 +26,7 @@ export default () => {
                 breakpoints={{
                     360:{
                         slidesPerView: 3,
-                        spaceBetween: 10,
+                        spaceBetween: 20,
                     },
                     640: {
                         slidesPerView: 4,
