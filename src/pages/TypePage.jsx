@@ -8,7 +8,6 @@ import Navbar from "../components/Navbar";
 import ListingCard from "../components/ListingCard";
 import Footer from "../components/Footer"
 import Categorylist from "../components/Categorylist";
-import Typemenu from "../components/Typemenu";
 
 const TypePage = () => {
   const [loading, setLoading] = useState(true)
@@ -37,7 +36,6 @@ const TypePage = () => {
     <>
       <Navbar />
       <Categorylist />
-      <Typemenu />
       <h1 className="title-list">{type}</h1>
       <div className="list">
         {listings?.map(

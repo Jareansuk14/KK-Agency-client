@@ -2,16 +2,9 @@
 @import "./breakpoints.scss";
 
 .listings-container{
-  padding-top: 50px;
-
-  @include ml {
-    padding-top: 10px;
-  }
-
-  @include sm {
-    padding-top: 10px;
-  }
+  padding-top: 30px;
 }
+
 .title-promo{
   display: flex;
   margin: 10px 0px 40px 100px;
@@ -28,6 +21,7 @@
     font-size: 25px;
   }
 }
+
 .listings {
   padding: 0 60px 120px;
   display: flex;
