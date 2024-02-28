@@ -46,7 +46,7 @@ const Navbar = () => {
               <Person sx={{ fontSize: 28, color: "#969393" }} />
             ) : (
               <img
-                src={`http://localhost:3001/${user.profileImagePath.replace(
+                src={`https://kkagency-api.onrender.com/${user.profileImagePath.replace(
                   "public",
                   ""
                 )}`}
