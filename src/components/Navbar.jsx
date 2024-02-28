@@ -8,9 +8,7 @@ import Hamburger from 'hamburger-react'
 
 const Navbar = () => {
   const [dropdownMenu, setDropdownMenu] = useState(false);
-
   const user = useSelector((state) => state.user);
-
   const dispatch = useDispatch();
 
   return (
@@ -37,7 +35,7 @@ const Navbar = () => {
             onClick={() => setDropdownMenu(!dropdownMenu)}
           >
             <Hamburger
-              size={20}
+              size={25}
               color="#24355A"
               duration={0.8}
             />
