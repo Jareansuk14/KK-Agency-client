@@ -4,6 +4,7 @@ import ListingCard from "./ListingCard";
 import Loader from "./Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { setListings } from "../redux/state";
+import Typemenu from "./Typemenu";
 
 const Listings = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const Listings = () => {
 
   return (
     <div className="listings-container">
+      <Typemenu />
       <h1 className="title-promo">รวมประกาศให้เช่าในขอนแก่น</h1>
       {loading ? (
         <Loader />

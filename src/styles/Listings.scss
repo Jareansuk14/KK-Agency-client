@@ -3,6 +3,14 @@
 
 .listings-container{
   padding-top: 50px;
+
+  @include ml {
+    padding-top: 10px;
+  }
+
+  @include sm {
+    padding-top: 10px;
+  }
 }
 .title-promo{
   display: flex;

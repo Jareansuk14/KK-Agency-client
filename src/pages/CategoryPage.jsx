@@ -8,6 +8,7 @@ import Loader from "../components/Loader";
 import ListingCard from "../components/ListingCard";
 import Footer from "../components/Footer"
 import Categorylist from "../components/Categorylist";
+import Typemenu from "../components/Typemenu";
 
 const CategoryPage = () => {
   const [loading, setLoading] = useState(true);
@@ -41,6 +42,7 @@ const CategoryPage = () => {
     <>
       <Navbar />
       <Categorylist />
+      <Typemenu />
       <h1 className="title-list">{category}</h1>
       <div className="list">
         {listings?.map(
