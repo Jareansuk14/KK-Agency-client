@@ -17,7 +17,7 @@ const Typemenu = () => {
                 >
                     <Hamburger
                         color="#24355A"
-                        duration={1}
+                        duration={0.8}
                         toggled={isOpen}
                         toggle={setOpen} />
                 </button>
