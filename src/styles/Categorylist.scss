@@ -1,76 +1,77 @@
 @import "./variables.scss";
 @import "./breakpoints.scss";
 
-// .cate-swipe {
-//     position: sticky;
-//     top: 0;
-// }
-
-.swiper-container {
+.cate-swipe {
+    position: sticky;
+    top: 72px;
+    z-index: 9998;
+    background-color: #fff;
     box-shadow: 2px 4px 8px 0 rgba(56, 75, 108, 0.1);
-
-    &.swiper {
-        --swiper-navigation-size: 50px;
-        --swiper-navigation-top-offset: 50%;
-        --swiper-navigation-sides-offset: 10px;
-        --swiper-navigation-color: #24355A;
-        padding: 20px 45px;
-
-        @include xxl {
+    
+    .swiper-container {
+        &.swiper {
             --swiper-navigation-size: 50px;
-            --swiper-navigation-sides-offset: 0px;
-            padding: 20px 40px;
-        }
+            --swiper-navigation-top-offset: 50%;
+            --swiper-navigation-sides-offset: 10px;
+            --swiper-navigation-color: #24355A;
+            padding: 20px 45px;
 
-        @include xl {
-            --swiper-navigation-size: 50px;
-            --swiper-navigation-sides-offset: 0px;
-            padding: 20px 35px;
-        }
-
-        @include lg {
-            --swiper-navigation-size: 50px;
-            --swiper-navigation-sides-offset: 0px;
-            padding: 20px 30px;
-        }
-
-        @include ml {
-            --swiper-navigation-size: 40px;
-            --swiper-navigation-sides-offset: 0px;
-            padding: 20px 25px;
-        }
-
-        @include md {
-            --swiper-navigation-size: 30px;
-            --swiper-navigation-sides-offset: 0px;
-            padding: 20px 20px;
-        }
-
-        .category {
-            border: 1px solid $blue;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: $darkblue;
-            cursor: pointer;
-
-            &_icon {
-                font-size: 30px;
+            @include xxl {
+                --swiper-navigation-size: 50px;
+                --swiper-navigation-sides-offset: 0px;
+                padding: 20px 40px;
             }
 
-            p {
-                font-size: 10px;
-                font-weight: 700;
+            @include xl {
+                --swiper-navigation-size: 50px;
+                --swiper-navigation-sides-offset: 0px;
+                padding: 20px 35px;
             }
 
-            &:hover {
+            @include lg {
+                --swiper-navigation-size: 50px;
+                --swiper-navigation-sides-offset: 0px;
+                padding: 20px 30px;
+            }
+
+            @include ml {
+                --swiper-navigation-size: 40px;
+                --swiper-navigation-sides-offset: 0px;
+                padding: 20px 25px;
+            }
+
+            @include md {
+                --swiper-navigation-size: 30px;
+                --swiper-navigation-sides-offset: 0px;
+                padding: 20px 20px;
+            }
+
+            .category {
+                border: 1px solid $blue;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: $darkblue;
+                cursor: pointer;
+
+                &_icon {
+                    font-size: 30px;
+                }
+
+                p {
+                    font-size: 10px;
+                    font-weight: 700;
+                }
+
+                &:hover {
+                    color: $pinkred;
+                }
+            }
+
+            .selected {
                 color: $pinkred;
             }
-        }
-
-        .selected {
-            color: $pinkred;
         }
     }
 }

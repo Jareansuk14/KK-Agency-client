@@ -6,8 +6,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: sticky;
+  top: 0 ;
   background-color: #FFF;
+  z-index: 9999;
 
   @include sm {
     padding: 10px 20px;
