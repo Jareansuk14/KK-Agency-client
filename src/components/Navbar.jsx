@@ -1,10 +1,10 @@
-import { Person, Menu } from "@mui/icons-material";
+import { Person } from "@mui/icons-material";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/Navbar.scss";
 import { Link } from "react-router-dom";
 import { setLogout } from "../redux/state";
-
+import Hamburger from 'hamburger-react'
 
 const Navbar = () => {
   const [dropdownMenu, setDropdownMenu] = useState(false);
