@@ -147,7 +147,7 @@ const ListingCard = ({
         <p>{statusroom}</p>
       </div>
 
-      <button
+      {/* <button
         className="favorite"
         onClick={(e) => {
           e.stopPropagation();
@@ -160,7 +160,7 @@ const ListingCard = ({
         ) : (
           <BookmarkAddRoundedIcon sx={{ fontSize: 35, color: "#F7F8F8" }} />
         )}
-      </button>
+      </button> */}
     </div>
   );
 };
