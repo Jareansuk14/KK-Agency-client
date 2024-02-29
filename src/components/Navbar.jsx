@@ -11,6 +11,7 @@ const Navbar = () => {
     setOpen(!isOpen);
   };
   const user = useSelector((state) => state.user);
+  const top = () => {window.scrollTo(0, 0)}
 
   return (
     <div className="navbar">
@@ -19,14 +20,14 @@ const Navbar = () => {
       </a>
 
       <div className="type-menu">
-        <Link to="/properties/type/บ้านเดี่ยว" className="type-menu-bar">บ้านเดี่ยว</Link>
-        <Link to="/properties/type/คอนโด" className="type-menu-bar">คอนโด</Link>
-        <Link to="/properties/type/ทาวน์เฮ้าส์" className="type-menu-bar">ทาวน์เฮ้าส์</Link>
-        <Link to="/properties/type/หอพัก โรงแรม" className="type-menu-bar">หอพัก/โรงแรม</Link>
-        <Link to="/properties/type/อาคารพาณิชย์" className="type-menu-bar">อาคารพาณิชย์</Link>
-        <Link to="/properties/type/สำนักงาน" className="type-menu-bar">สำนักงาน</Link>
-        <Link to="/properties/type/เซ็งธุรกิจ" className="type-menu-bar">เซ็งธุรกิจ</Link>
-        <Link to="/properties/type/ที่ดิน" className="type-menu-bar">ที่ดิน</Link>
+        <Link to="/properties/type/บ้านเดี่ยว" className="type-menu-bar" onClick={top}>บ้านเดี่ยว</Link>
+        <Link to="/properties/type/คอนโด" className="type-menu-bar" onClick={top}>คอนโด</Link>
+        <Link to="/properties/type/ทาวน์เฮ้าส์" className="type-menu-bar" onClick={top}>ทาวน์เฮ้าส์</Link>
+        <Link to="/properties/type/หอพัก โรงแรม" className="type-menu-bar" onClick={top}>หอพัก/โรงแรม</Link>
+        <Link to="/properties/type/อาคารพาณิชย์" className="type-menu-bar" onClick={top}>อาคารพาณิชย์</Link>
+        <Link to="/properties/type/สำนักงาน" className="type-menu-bar" onClick={top}>สำนักงาน</Link>
+        <Link to="/properties/type/เซ็งธุรกิจ" className="type-menu-bar" onClick={top}>เซ็งธุรกิจ</Link>
+        <Link to="/properties/type/ที่ดิน" className="type-menu-bar" onClick={top}>ที่ดิน</Link>
       </div>
 
       <div className="navbar_right">
@@ -62,23 +63,23 @@ const Navbar = () => {
 
         {isOpen && (
           <div className="navbar_right_accountmenu">
-            <Link to="/properties/type/บ้านเดี่ยว" className="type-bar">บ้านเดี่ยว</Link>
-            <Link to="/properties/type/คอนโด" className="type-bar">คอนโด</Link>
-            <Link to="/properties/type/ทาวน์เฮ้าส์" className="type-bar">ทาวน์เฮ้าส์</Link>
-            <Link to="/properties/type/หอพัก โรงแรม" className="type-bar">หอพัก/โรงแรม</Link>
-            <Link to="/properties/type/อาคารพาณิชย์" className="type-bar">อาคารพาณิชย์</Link>
-            <Link to="/properties/type/สำนักงาน" className="type-bar">สำนักงาน</Link>
-            <Link to="/properties/type/เซ็งธุรกิจ" className="type-bar">เซ็งธุรกิจ</Link>
-            <Link to="/properties/type/ที่ดิน" className="type-bar">ที่ดิน</Link>
+            <Link to="/properties/type/บ้านเดี่ยว" className="type-bar" onClick={top}>บ้านเดี่ยว</Link>
+            <Link to="/properties/type/คอนโด" className="type-bar" onClick={top}>คอนโด</Link>
+            <Link to="/properties/type/ทาวน์เฮ้าส์" className="type-bar" onClick={top}>ทาวน์เฮ้าส์</Link>
+            <Link to="/properties/type/หอพัก โรงแรม" className="type-bar" onClick={top}>หอพัก/โรงแรม</Link>
+            <Link to="/properties/type/อาคารพาณิชย์" className="type-bar" onClick={top}>อาคารพาณิชย์</Link>
+            <Link to="/properties/type/สำนักงาน" className="type-bar" onClick={top}>สำนักงาน</Link>
+            <Link to="/properties/type/เซ็งธุรกิจ" className="type-bar" onClick={top}>เซ็งธุรกิจ</Link>
+            <Link to="/properties/type/ที่ดิน" className="type-bar" onClick={top}>ที่ดิน</Link>
             <div className="range-price">
               <p>ช่วงราคา (บาท)</p>
             </div>
-            <Link to="/properties/pricerange/น้อยกว่า 5,000">น้อยกว่า 5,000</Link>
-            <Link to="/properties/pricerange/5,000 - 10,000">5,000 - 10,000</Link>
-            <Link to="/properties/pricerange/10,000 - 15,000">10,000 - 15,000</Link>
-            <Link to="/properties/pricerange/15,000 - 20,000">15,000 - 20,000</Link>
-            <Link to="/properties/pricerange/20,000 - 30,000">20,000 - 30,000</Link>
-            <Link to="/properties/pricerange/30,000 ++">30,000 ++</Link>
+            <Link to="/properties/pricerange/น้อยกว่า 5,000" onClick={top}>น้อยกว่า 5,000</Link>
+            <Link to="/properties/pricerange/5,000 - 10,000" onClick={top}>5,000 - 10,000</Link>
+            <Link to="/properties/pricerange/10,000 - 15,000" onClick={top}>10,000 - 15,000</Link>
+            <Link to="/properties/pricerange/15,000 - 20,000" onClick={top}>15,000 - 20,000</Link>
+            <Link to="/properties/pricerange/20,000 - 30,000" onClick={top}>20,000 - 30,000</Link>
+            <Link to="/properties/pricerange/30,000 ++" onClick={top}>30,000 ++</Link>
           </div>
         )}
       </div>

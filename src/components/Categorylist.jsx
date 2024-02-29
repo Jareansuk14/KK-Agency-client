@@ -11,6 +11,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 
 export default () => {
     const navigate = useNavigate();
+    const top = () => {window.scrollTo(0, 0)}
     return (
         <div className="cate-swipe">
             <Swiper
@@ -58,7 +59,7 @@ export default () => {
                             navigate(`/properties/category/${category.label}`);
                         }}
                     >
-                        <div className="category_icon">{category.icon}</div>
+                        <div className="category_icon" onClick={top}>{category.icon}</div>
                         <p>{category.label}</p>
                     </SwiperSlide>
                 ))}
