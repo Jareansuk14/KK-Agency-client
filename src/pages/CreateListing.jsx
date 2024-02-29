@@ -1,6 +1,6 @@
 import "../styles/CreateListing.scss";
 import Navbar from "../components/Navbar";
-import { categories, types, facilities } from "../data";
+import { categories, types, facilities, prices } from "../data";
 import Cleave from 'cleave.js/react';
 import { RemoveCircleOutline, AddCircleOutline } from "@mui/icons-material";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer"
 
 const CreateListing = () => {
+  const [pricerange, setPricerange] = useState("");
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
 
@@ -106,6 +107,7 @@ const CreateListing = () => {
       /* Create a new FormData onject to handle file uploads */
       const listingForm = new FormData();
       listingForm.append("creator", creatorId);
+      listingForm.append("pricerange", pricerange);
       listingForm.append("category", category);
       listingForm.append("type", type);
       listingForm.append("streetAddress", formLocation.streetAddress);
@@ -543,7 +545,6 @@ const CreateListing = () => {
               />
 
               <p>ตั้งราคาให้กับที่พักของคุณ</p>
-              <span>฿</span>
               <Cleave
                 placeholder="ราคา"
                 options={{
@@ -556,6 +557,21 @@ const CreateListing = () => {
                 className="price"
                 required
               />
+              <span>฿</span>
+
+              <h3>ช่วงราคา (บาท)</h3>
+              <div className="prices-list">
+                {prices?.map((item, index) => (
+                  <div
+                    className={`pricerange ${pricerange === item.label ? "selected" : ""
+                      }`}
+                    key={index}
+                    onClick={() => setPricerange(item.label)}
+                  >
+                    <h5>{item.label}</h5>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

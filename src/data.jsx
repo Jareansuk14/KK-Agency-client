@@ -145,6 +145,15 @@ export const types = [
   },
 ];
 
+export const prices = [
+  {label: "น้อยกว่า 5,000"},
+  {label: "5,000 - 10,000"},
+  {label: "10,000 - 15,000"},
+  {label: "15,000 - 20,000"},
+  {label: "20,000 - 30,000"},
+  {label: "30,000 ++"},
+];
+
 export const facilities = [
   {
     name: "อ่างอาบน้ำ",

@@ -410,6 +410,49 @@
         width: 200px;
         margin-right: 10px;
       }
+
+      .prices-list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 0 20px;
+  
+        @include lg {
+          justify-content: center;
+        }
+  
+  
+        .pricerange {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 110px;
+          height: 50px;
+          border: 1px solid $grey;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: 0.2s ease;
+  
+          h5 {
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            color: black;
+          }
+  
+          &:hover {
+            border: 2px solid $pinkred;
+            background-color: $lightgrey;
+          }
+        }
+  
+        .selected {
+          border: 2px solid $pinkred;
+          background-color: $lightgrey;
+        }
+      }
     }
   }
 

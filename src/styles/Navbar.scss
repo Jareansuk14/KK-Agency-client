@@ -60,7 +60,9 @@
     @include ml {
       display: none;
     }
+
   }
+
 
   &_right {
     display: flex;
@@ -114,7 +116,7 @@
       top: 65px;
       display: flex;
       flex-direction: column;
-      width: 200px;
+      width: 300px;
       padding: 10px 0;
       border: 1px solid $lightgrey;
       border-radius: 20px;
@@ -122,8 +124,8 @@
       z-index: 9999;
 
       @include ml {
-        left: 0px;
-        right: 0px;
+        left: 0;
+        right: 0;
         width: 100%;
         border-radius: 0;
       }
@@ -148,6 +150,21 @@
 
         @include ml {
           display: flex;
+        }
+      }
+
+      .range-price {
+        display: flex;
+        
+        p{
+          color: $pinkred;
+          margin-left: 23px;
+          font-size: 18px;
+          font-weight: 700;
+
+          @include ml {
+            font-size: 20px;
+          }
         }
       }
     }
