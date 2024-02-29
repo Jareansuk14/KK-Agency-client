@@ -9,7 +9,6 @@ import WishList from "./pages/WishList";
 import CategoryPage from "./pages/CategoryPage";
 import SearchPage from "./pages/SearchPage";
 import TypePage from "./pages/TypePage";
-import Protected from "./auth/Protected";
 
 function App() {
   return (
@@ -19,12 +18,12 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/create-listing" element={<Protected> <CreateListing /> </Protected>} />
+          <Route path="/create-listing" element={<CreateListing />} />
           <Route path="/properties/:listingId" element={<ListingDetails />} />
           <Route path="/properties/category/:category" element={<CategoryPage />} />
           <Route path="/properties/type/:type" element={<TypePage />} />
           <Route path="/properties/search/:search" element={<SearchPage />} />
-          <Route path="/:userId/wishList" element={<Protected> <WishList /> </Protected>} />
+          <Route path="/:userId/wishList" element={<WishList />} />
         </Routes>
       </BrowserRouter>
     </div>
