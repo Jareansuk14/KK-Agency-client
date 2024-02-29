@@ -4,8 +4,13 @@ import ListingCard from "./ListingCard";
 import Loader from "./Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { setListings } from "../redux/state";
+import Pagination from "./Pagination";
 
 const Listings = () => {
+  //Pagination 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(4);
+
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("ทั้งหมด");
@@ -33,6 +38,14 @@ const Listings = () => {
     getFeedListings();
   }, [selectedCategory]);
 
+  //get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = listings.slice(indexOfFirstPost, indexOfLastPost);
+
+  //change Page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="listings-container">
       <h1 className="title-promo">รวมประกาศให้เช่าในขอนแก่น</h1>
@@ -40,7 +53,7 @@ const Listings = () => {
         <Loader />
       ) : (
         <div className="listings">
-          {listings.map(
+          {currentPosts.map(
             ({
               _id,
               creator,
@@ -79,6 +92,13 @@ const Listings = () => {
           )}
         </div>
       )}
+
+      <Pagination
+        totalPosts={listings.length}
+        postsPerPage={postsPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
     </div>
   );
 };
