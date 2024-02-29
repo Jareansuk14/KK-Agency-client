@@ -45,11 +45,6 @@ const ListingCard = ({
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  /* ADD TO WISHLIST */
-  const user = useSelector((state) => state.user);
-  const wishList = user?.wishList || [];
-
-  const isLiked = wishList?.find((item) => item?._id === listingId);
 
   const patchWishList = async () => {
     if (user?._id !== creator._id) {
@@ -147,20 +142,6 @@ const ListingCard = ({
         <p>{statusroom}</p>
       </div>
 
-      {/* <button
-        className="favorite"
-        onClick={(e) => {
-          e.stopPropagation();
-          patchWishList();
-        }}
-        disabled={!user}
-      >
-        {isLiked ? (
-          <BookmarkAddedRoundedIcon sx={{ fontSize: 35, color: "#9cf80e" }} />
-        ) : (
-          <BookmarkAddRoundedIcon sx={{ fontSize: 35, color: "#F7F8F8" }} />
-        )}
-      </button> */}
     </div>
   );
 };

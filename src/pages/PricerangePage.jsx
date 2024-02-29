@@ -8,8 +8,13 @@ import Loader from "../components/Loader";
 import ListingCard from "../components/ListingCard";
 import Footer from "../components/Footer"
 import Categorylist from "../components/Categorylist";
+import Pagination from "../components/Pagination";
 
 const CategoryPage = () => {
+  //Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(4);
+
   const [loading, setLoading] = useState(true);
   const { pricerange } = useParams()
   const listings = useSelector((state) => state.listings);
@@ -32,6 +37,14 @@ const CategoryPage = () => {
     getSearchListings();
   }, [pricerange]);
 
+  //get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = listings.slice(indexOfFirstPost, indexOfLastPost);
+
+  //change Page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return loading ? (
     <Loader />
   ) : (
@@ -40,7 +53,7 @@ const CategoryPage = () => {
       <Categorylist />
       <h1 className="title-list">รวมที่พักราคา {pricerange} บาท</h1>
       <div className="list">
-        {listings?.map(
+        {currentPosts?.map(
           ({
             _id,
             creator,
@@ -78,6 +91,12 @@ const CategoryPage = () => {
           )
         )}
       </div>
+      <Pagination
+          totalPosts={listings.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
       <Footer />
     </>
   );
