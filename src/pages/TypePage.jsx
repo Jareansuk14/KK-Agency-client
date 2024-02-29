@@ -8,8 +8,13 @@ import Navbar from "../components/Navbar";
 import ListingCard from "../components/ListingCard";
 import Footer from "../components/Footer"
 import Categorylist from "../components/Categorylist";
+import Pagination from "../components/Pagination";
 
 const TypePage = () => {
+  //Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(4);
+
   const [loading, setLoading] = useState(true)
   const { type } = useParams()
   const listings = useSelector((state) => state.listings)
@@ -32,13 +37,21 @@ const TypePage = () => {
     getSearchListings()
   }, [type])
 
+  //get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = listings.slice(indexOfFirstPost, indexOfLastPost);
+
+  //change Page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return loading ? <Loader /> : (
     <>
       <Navbar />
       <Categorylist />
       <h1 className="title-list">{type}</h1>
       <div className="list">
-        {listings?.map(
+        {currentPosts?.map(
           ({
             _id,
             creator,
@@ -76,6 +89,12 @@ const TypePage = () => {
           )
         )}
       </div>
+      <Pagination
+          totalPosts={listings.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
       <Footer />
     </>
   );

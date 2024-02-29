@@ -8,14 +8,17 @@ import Navbar from "../components/Navbar";
 import ListingCard from "../components/ListingCard";
 import Footer from "../components/Footer"
 import Categorylist from "../components/Categorylist";
+import Pagination from "../components/Pagination";
 
 const SearchPage = () => {
+  //Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(4);
+
   const [loading, setLoading] = useState(true)
   const { search } = useParams()
   const listings = useSelector((state) => state.listings)
-
   const dispatch = useDispatch()
-
   const getSearchListings = async () => {
     try {
       const response = await fetch(`https://kkagency-api.onrender.com/properties/search/${search}`, {
@@ -34,13 +37,21 @@ const SearchPage = () => {
     getSearchListings()
   }, [search])
 
+      //get current posts
+      const indexOfLastPost = currentPage * postsPerPage;
+      const indexOfFirstPost = indexOfLastPost - postsPerPage;
+      const currentPosts = listings.slice(indexOfFirstPost, indexOfLastPost);
+    
+      //change Page
+      const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return loading ? <Loader /> : (
     <>
       <Navbar />
       <Categorylist />
       <h1 className="title-list">ผลการค้นหา : {search}</h1>
       <div className="list">
-        {listings?.map(
+        {currentPosts?.map(
           ({
             _id,
             creator,
@@ -78,6 +89,12 @@ const SearchPage = () => {
           )
         )}
       </div>
+      <Pagination
+          totalPosts={listings.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
       <Footer />
     </>
   );
