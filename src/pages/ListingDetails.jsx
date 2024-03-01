@@ -6,6 +6,7 @@ import { LuPhoneCall, LuMail } from "react-icons/lu";
 import { FaLine } from "react-icons/fa6";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+import LocationOnSharpIcon from '@mui/icons-material/LocationOnSharp';
 import { BedOutlined, ShowerOutlined, Restaurant, SquareFoot } from '@mui/icons-material/';
 import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
@@ -101,6 +102,7 @@ const ListingDetails = () => {
 
         <h3>รายละเอียด</h3>
         <p className="description">{listing.description}</p>
+        <Link className="locationbtn" to={listing.location} target="_blank"><LocationOnSharpIcon />ดูแผนที่</Link>
         <hr />
 
         <h3>{listing.highlight} ({listing.statusroom})</h3>

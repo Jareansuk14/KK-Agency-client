@@ -26,6 +26,7 @@ function App() {
           <Route path="/properties/type/:type" element={<TypePage />} />
           <Route path="/properties/search/:search" element={<SearchPage />} />
           <Route path="/:userId/wishList" element={<WishList />} />
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
     </div>

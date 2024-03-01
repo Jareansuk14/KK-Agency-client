@@ -18,6 +18,7 @@ const CreateListing = () => {
 
   /* LOCATION */
   const [formLocation, setFormLocation] = useState({
+    location: "",
     streetAddress: "",
     aptSuite: "",
     city: "",
@@ -110,6 +111,7 @@ const CreateListing = () => {
       listingForm.append("pricerange", pricerange);
       listingForm.append("category", category);
       listingForm.append("type", type);
+      listingForm.append("location", formLocation.location);
       listingForm.append("streetAddress", formLocation.streetAddress);
       listingForm.append("aptSuite", formLocation.aptSuite);
       listingForm.append("city", formLocation.city);
@@ -189,6 +191,20 @@ const CreateListing = () => {
             </div>
 
             <h3>สถานที่พักของคุณอยู่ที่ไหน?</h3>
+            <div className="full">
+              <div className="location">
+                <p>ลิงค์แผนที่</p>
+                <input
+                  type="text"
+                  placeholder="ลิงค์แผนที่"
+                  name="location"
+                  value={formLocation.location}
+                  onChange={handleChangeLocation}
+                  required
+                />
+              </div>
+            </div>
+
             <div className="full">
               <div className="location">
                 <p>ถนน</p>

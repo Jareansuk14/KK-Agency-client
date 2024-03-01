@@ -188,6 +188,24 @@
     }
   }
 
+  .locationbtn {
+    text-decoration: none;
+    color: $pinkred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    font-weight: 700;
+    width: 100px;
+    height: 50px;
+    border: 2px solid $blue;
+    border-radius: 10px;
+
+    &:hover{
+      @include shadow
+    }
+}
+
   .profile {
     display: flex;
     gap: 20px;
