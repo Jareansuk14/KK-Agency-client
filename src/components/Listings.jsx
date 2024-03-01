@@ -4,7 +4,7 @@ import ListingCard from "./ListingCard";
 import Loader from "./Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { setListings } from "../redux/state";
-import Pagination from "./Pagination";
+import Paginationhome from "./Paginationhome";
 
 const Listings = () => {
   //Pagination 
@@ -94,7 +94,7 @@ const Listings = () => {
         </div>
       )}
 
-      <Pagination
+      <Paginationhome
         totalPosts={listings.length}
         postsPerPage={postsPerPage}
         setCurrentPage={setCurrentPage}
