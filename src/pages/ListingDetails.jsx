@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import "../styles/ListingDetails.scss";
 import { useParams, Link } from "react-router-dom";
 import { facilities } from "../data";
-import { LuPhoneCall, LuMail } from "react-icons/lu";
-import { FaLine } from "react-icons/fa6";
+import { IoCall } from "react-icons/io5";
+import { FaLine ,FaFacebookMessenger } from "react-icons/fa6";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import LocationOnSharpIcon from '@mui/icons-material/LocationOnSharp';
@@ -20,6 +20,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
 const ListingDetails = () => {
+
+  //button contact
+  const PhoneCall = () => {
+    const phoneNumber = '0616300453'; // replace with the phone number you want to call
+    window.open(`tel:${phoneNumber}`);
+  };
+
   const [loading, setLoading] = useState(true);
   const { listingId } = useParams();
   const [listing, setListing] = useState(null);
@@ -133,9 +140,9 @@ const ListingDetails = () => {
         <div className="contact">
           <h2>ช่องทางติดต่อ</h2>
           <ul>
-            <li><a href="#"><LuPhoneCall /> 061-324-5678</a></li>
-            <li><a href="#"><LuMail /> KKAgency@gmail.com</a></li>
-            <li><a href="#"><FaLine /> @Test123</a></li>
+            <li><a className="call" onClick={PhoneCall}><IoCall sx={{ fontSize: "50px", color: "#FFF" }} /></a></li>
+            <li><a className="facebook" href="https://www.facebook.com/profile.php?id=100067895833848" target="_blank"><FaFacebookMessenger /></a></li>
+            <li><a className="line" href="https://lin.ee/QM42NEx"><FaLine /></a></li>
           </ul>
         </div>
       </div>
