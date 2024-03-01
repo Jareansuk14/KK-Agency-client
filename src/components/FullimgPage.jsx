@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "../styles/FullimgPage.scss";
 import { useParams, useNavigate } from "react-router-dom";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
+// import "react-date-range/dist/styles.css";
+// import "react-date-range/dist/theme/default.css";
 import Loader from "../components/Loader";
 import { IoClose } from "react-icons/io5";
 
