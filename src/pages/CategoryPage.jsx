@@ -40,10 +40,11 @@ const CategoryPage = () => {
     getFeedListings();
   }, [category]);
 
-  //get current posts
+  //get current posts and sortPosts
+  const sortedPosts = [...listings].sort(() => {return-1});
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = listings.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
   //change Page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
