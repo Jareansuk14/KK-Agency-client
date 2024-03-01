@@ -1,0 +1,167 @@
+@import "./variables.scss";
+@import "./breakpoints.scss";
+
+.listing-fullimg {
+    height: 100vh;
+    padding: 0px 30px;
+    background-color: #000;
+
+      @include xxl {
+        padding: 40px 30px;
+      }
+
+      @include xx {
+        padding: 0px 10px;
+      }
+
+      @include xl {
+        padding: 280px 10px;
+      }
+
+      @include lg {
+        padding: 200px 30px;
+      }
+
+      @include ml {
+        padding: 180px 0px;
+      }
+
+      @include md {
+        padding: 160px 0px;
+      }
+
+      @include ss {
+        padding: 100px 0px;
+      }
+
+
+    .close{
+        display: flex;
+        justify-content: end;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        margin-right: 20px;
+        font-size: 50px;
+        color: #fff;
+        cursor: pointer;
+
+        @include md {
+            margin-right: 5px;
+          }
+    }
+
+    .listing-container {
+    display: flex;
+    justify-content: center;
+
+    .slider-listing {
+      --swiper-navigation-size: 70px;
+      --swiper-navigation-color: #FFF;
+      --swiper-pagination-color: #FFF;
+      width: 100%;
+      height: 750px;
+      overflow: hidden;
+      margin-bottom: 10px;
+
+      @include xxl {
+        height: 650px;
+        --swiper-navigation-size: 70px;
+      }
+
+      @include xx {
+        height: 500px;
+        --swiper-navigation-size: 70px;
+      }
+
+      @include xl {
+        height: 650px;
+        --swiper-navigation-size: 60px;
+      }
+
+      @include lg {
+        height: 500px;
+        --swiper-navigation-size: 50px;
+      }
+
+      @include ml {
+        height: 550px;
+        --swiper-navigation-size: 40px;
+      }
+
+      @include md {
+        height: 350px;
+        --swiper-navigation-size: 30px;
+      }
+
+      .slider-img {
+        .slide {
+          background: #000;
+          position: relative;
+          flex: 0 0 100%;
+          width: 100%;
+          height: 750px;
+          display: flex;
+          align-items: center;
+
+          @include xxl {
+            height: 650px;
+          }
+
+          @include xx {
+            height: 500px;
+          }
+
+          @include xl {
+            height: 650px;
+          }
+
+          @include lg {
+            height: 500px;
+          }
+
+          @include ml {
+            height: 600px;
+          }
+
+          @include md {
+            height: 350px;
+          }
+
+          img {
+            max-width: 1000px;
+            width: auto;
+            height: 100%;
+            filter: brightness(85%);
+
+            @include xxl {
+              max-width: 900px;
+            }
+
+            @include xx {
+              max-width: 900px;
+            }
+
+            @include xl {
+              max-width: 850px;
+            }
+
+            @include lg {
+              max-width: 700px;
+            }
+
+            @include md {
+              max-width: 390px;
+            }
+
+            @include ss {
+              max-width: 360px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

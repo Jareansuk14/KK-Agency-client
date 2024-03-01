@@ -123,6 +123,7 @@
             width: auto;
             height: 100%;
             filter: brightness(85%);
+            cursor: pointer;
 
             @include xxl {
               max-width: 800px;

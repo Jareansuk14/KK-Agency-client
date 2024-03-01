@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/ListingDetails.scss";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { facilities } from "../data";
 import { IoCall } from "react-icons/io5";
 import { FaLine ,FaFacebookMessenger } from "react-icons/fa6";
@@ -28,6 +28,7 @@ const ListingDetails = () => {
   };
 
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
   const { listingId } = useParams();
   const [listing, setListing] = useState(null);
   const getListingDetails = async () => {
@@ -74,6 +75,9 @@ const ListingDetails = () => {
                   <img
                     src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
                     alt={`photo ${index + 1}`}
+                    onClick={() => {
+                      navigate(`/properties/fullimg/${listingId}`);
+                    }}
                   />
                 </SwiperSlide>
               ))}
