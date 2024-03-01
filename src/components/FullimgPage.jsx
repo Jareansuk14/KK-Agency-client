@@ -15,12 +15,6 @@ import { Navigation, Pagination } from 'swiper/modules';
 
 const FullimgPage = () => {
 
-  //button contact
-  const PhoneCall = () => {
-    const phoneNumber = '0616300453'; // replace with the phone number you want to call
-    window.open(`tel:${phoneNumber}`);
-  };
-
   const [loading, setLoading] = useState(true);
   const { listingId } = useParams();
   const navigate = useNavigate();
@@ -28,7 +22,7 @@ const FullimgPage = () => {
   const getListingDetails = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3001/properties/"+listingId,
+        "https://kkagency-api.onrender.com/properties/" + listingId,
         {
           method: "GET",
         }
@@ -49,10 +43,12 @@ const FullimgPage = () => {
   return loading ? (
     <Loader />
   ) : (
-    
+
     <div className="fullimg-container">
       <div className="listing-fullimg">
-        <div className="close" onClick={() => navigate(-1)}><h1><IoClose/></h1></div>
+        <div className="close" onClick={() => {
+          navigate(`/properties/${listingId}`);
+        }} ><h1><IoClose /></h1></div>
         <div className="listing-container">
           <div className="slider-listing">
             <Swiper
