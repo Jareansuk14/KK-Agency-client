@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/ListingDetails.scss";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { facilities } from "../data";
 import { LuPhoneCall, LuMail } from "react-icons/lu";
 import { FaLine } from "react-icons/fa6";
