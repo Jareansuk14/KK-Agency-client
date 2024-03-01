@@ -1,8 +1,9 @@
 import { Person } from "@mui/icons-material";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "../styles/Navbar.scss";
 import { Link } from "react-router-dom";
+import { setLogout } from "../redux/state";
 import Hamburger from 'hamburger-react'
 
 const Navbar = () => {
@@ -11,7 +12,8 @@ const Navbar = () => {
     setOpen(!isOpen);
   };
   const user = useSelector((state) => state.user);
-  const top = () => {window.scrollTo(0, 0)}
+  const dispatch = useDispatch();
+  const top = () => { window.scrollTo(0, 0) }
 
   return (
     <div className="navbar">
@@ -61,7 +63,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {isOpen && (
+        {isOpen && !user && (
           <div className="navbar_right_accountmenu">
             <Link to="/properties/type/บ้านเดี่ยว" className="type-bar" onClick={top}>บ้านเดี่ยว</Link>
             <Link to="/properties/type/คอนโด" className="type-bar" onClick={top}>คอนโด</Link>
@@ -80,6 +82,12 @@ const Navbar = () => {
             <Link to="/properties/pricerange/15,000 - 20,000" onClick={top}>15,000 - 20,000</Link>
             <Link to="/properties/pricerange/20,000 - 30,000" onClick={top}>20,000 - 30,000</Link>
             <Link to="/properties/pricerange/30,000 ++" onClick={top}>30,000 ++</Link>
+          </div>
+        )}
+
+        {isOpen && user && (
+          <div className="navbar_right_accountmenu">
+            <Link to="/login" onClick={() => { dispatch(setLogout()); }}>ออกจากระบบ</Link>
           </div>
         )}
       </div>
