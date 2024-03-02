@@ -3,7 +3,7 @@ import "../styles/ListingDetails.scss";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { facilities } from "../data";
 import { IoCall } from "react-icons/io5";
-import { FaLine ,FaFacebookMessenger } from "react-icons/fa6";
+import { FaLine, FaFacebookMessenger } from "react-icons/fa6";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import LocationOnSharpIcon from '@mui/icons-material/LocationOnSharp';
@@ -64,6 +64,8 @@ const ListingDetails = () => {
           <div className="slider-container">
             <Swiper
               speed={0}
+              spaceBetween={1000}
+              slidesPerView={1}
               loop={true}
               modules={[Navigation, Pagination]}
               navigation

@@ -136,7 +136,7 @@
             filter: brightness(85%);
 
             @include xxl {
-              max-width: 900px;
+              max-width: 950px;
             }
 
             @include xx {
@@ -148,11 +148,11 @@
             }
 
             @include lg {
-              max-width: 700px;
+              max-width: 800px;
             }
 
             @include md {
-              max-width: 390px;
+              max-width: 480px;
             }
 
             @include ss {
