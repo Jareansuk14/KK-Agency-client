@@ -50,6 +50,8 @@ const FullimgPage = () => {
                 <div className="listing-container">
                     <div className="slider-listing">
                         <Swiper
+                            spaceBetween={0}
+                            slidesPerView={1}
                             loop={true}
                             modules={[Navigation, Pagination]}
                             navigation
