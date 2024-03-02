@@ -50,7 +50,7 @@ const FullimgPage = () => {
                 <div className="listing-container">
                     <div className="slider-listing">
                         <Swiper
-                            speed={100}
+                            speed={0}
                             spaceBetween={0}
                             slidesPerView={1}
                             loop={true}
