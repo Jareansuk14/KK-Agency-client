@@ -3,11 +3,13 @@
 
 .listing-fullimg {
   .close {
-    margin-top: 30px;
+    // border: 1px solid red;
+    margin-top: 70px;
     width: 100%;
     display: flex;
     justify-content: end;
     position: absolute;
+    z-index: 999999;
   }
 
   h1 {
@@ -63,7 +65,7 @@
       }
 
       @include md {
-        height: auto;
+        height: 65vh;
         --swiper-navigation-size: 30px;
       }
 
@@ -97,7 +99,7 @@
           }
 
           @include md {
-            height: auto;
+            height: 65vh;
           }
 
           img {
