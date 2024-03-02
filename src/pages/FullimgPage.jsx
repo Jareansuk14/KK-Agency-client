@@ -6,10 +6,11 @@ import { IoClose } from "react-icons/io5";
 
 // Import Swiper React components
 import 'swiper/css';
+import 'swiper/css/zoom';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Zoom } from 'swiper/modules';
 
 const FullimgPage = () => {
 
@@ -50,23 +51,27 @@ const FullimgPage = () => {
                 <div className="listing-container">
                     <div className="slider-listing">
                         <Swiper
+                            zoom={true}
                             speed={0}
                             spaceBetween={1000}
                             slidesPerView={1}
                             loop={true}
-                            modules={[Navigation, Pagination]}
+                            modules={[Navigation, Pagination, Zoom]}
                             navigation
                             pagination={{
                                 dynamicBullets: true,
+                                clickable: true,
                             }}
                             className="slider-img"
                         >
                             {listing.listingPhotoPaths?.map((photo, index) => (
                                 <SwiperSlide key={index} className="slide">
-                                    <img
-                                        src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
-                                        alt={`photo ${index + 1}`}
-                                    />
+                                    <div className="swiper-zoom-container">
+                                        <img
+                                            src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
+                                            alt={`photo ${index + 1}`}
+                                        />
+                                    </div>
                                 </SwiperSlide>
                             ))}
                         </Swiper>
