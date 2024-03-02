@@ -60,7 +60,6 @@ const FullimgPage = () => {
                             navigation
                             pagination={{
                                 dynamicBullets: true,
-                                clickable: true,
                             }}
                             className="slider-img"
                         >
