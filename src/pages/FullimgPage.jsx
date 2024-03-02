@@ -50,6 +50,9 @@ const FullimgPage = () => {
                 <div className="listing-container">
                     <div className="slider-listing">
                         <Swiper
+                            loop={true}
+                            speed={1200}
+                            freeMode={true}
                             modules={[Navigation, Pagination]}
                             navigation
                             pagination={{
