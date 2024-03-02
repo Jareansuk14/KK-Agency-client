@@ -2,59 +2,31 @@
 @import "./breakpoints.scss";
 
 .listing-fullimg {
-    height: 100vh;
-    padding: 0px 30px;
+  .close {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    position: absolute;
+  }
+
+  h1 {
+    margin-right: 20px;
+    font-size: 50px;
+    color: #fff;
+    cursor: pointer;
+
+    @include md {
+      margin-right: 5px;
+    }
+  }
+
+  .listing-container {
     background-color: #000;
-
-      @include xxl {
-        padding: 40px 30px;
-      }
-
-      @include xx {
-        padding: 0px 10px;
-      }
-
-      @include xl {
-        padding: 280px 10px;
-      }
-
-      @include lg {
-        padding: 200px 30px;
-      }
-
-      @include ml {
-        padding: 180px 0px;
-      }
-
-      @include md {
-        padding: 160px 0px;
-      }
-
-      @include ss {
-        padding: 100px 0px;
-      }
-
-
-    .close{
-        display: flex;
-        justify-content: end;
-        margin-bottom: 10px;
-    }
-
-    h1 {
-        margin-right: 20px;
-        font-size: 50px;
-        color: #fff;
-        cursor: pointer;
-
-        @include md {
-            margin-right: 5px;
-          }
-    }
-
-    .listing-container {
+    height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
 
     .slider-listing {
       --swiper-navigation-size: 70px;
