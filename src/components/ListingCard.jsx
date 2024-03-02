@@ -107,6 +107,7 @@ const ListingCard = ({
       <div className="container">
         <div className="slider-container-m">
           <Swiper
+            speed={0}
             loop={true}
             modules={[Pagination]}
             pagination={{
