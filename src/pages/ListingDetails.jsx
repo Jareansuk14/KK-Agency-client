@@ -63,6 +63,7 @@ const ListingDetails = () => {
         <div className="container">
           <div className="slider-container">
             <Swiper
+              loop={true}
               modules={[Navigation, Pagination]}
               navigation
               pagination={{

@@ -107,6 +107,7 @@ const ListingCard = ({
       <div className="container">
         <div className="slider-container-m">
           <Swiper
+            loop={true}
             modules={[Pagination]}
             pagination={{
               dynamicBullets: true,
