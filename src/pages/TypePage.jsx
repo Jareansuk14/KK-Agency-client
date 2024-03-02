@@ -13,7 +13,7 @@ import Pagination from "../components/Pagination";
 const TypePage = () => {
   //Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(4);
+  const [postsPerPage, setPostsPerPage] = useState(20);
 
   const [loading, setLoading] = useState(true)
   const { type } = useParams()
