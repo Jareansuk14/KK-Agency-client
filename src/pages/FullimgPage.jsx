@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/FullimgPage.scss";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
 import Loader from "../components/Loader";
 import { IoClose } from "react-icons/io5";
 
@@ -41,33 +41,39 @@ const FullimgPage = () => {
     return loading ? (
         <Loader />
     ) : (
-
-        <div className="fullimg-container">
-            <h1 className="close" onClick={() => { navigate(`/properties/${listingId}`); }} ><IoClose /></h1>
-            <Swiper
-                speed={0}
-                spaceBetween={0}
-                slidesPerView={1}
-                loop={true}
-                modules={[Navigation, Pagination]}
-                navigation
-                pagination={{
-                    type: 'fraction',
-                }}
-                className="slider-img"
-            >
-                {listing.listingPhotoPaths?.map((photo, index) => (
-                    <SwiperSlide key={index} className="slide">
-                        <div className="swiper-container">
-                            <img
-                                src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
-                                alt={`photo ${index + 1}`}
-                            />
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </div>
+        <>
+            {listing && listing.listingPhotoPaths && listing.listingPhotoPaths.length > 0 ? (
+                <div className="fullimg-container">
+                    <h1 className="close" onClick={() => { navigate(`/properties/${listingId}`); }} ><IoClose /></h1>
+                    <Swiper
+                        speed={0}
+                        spaceBetween={0}
+                        slidesPerView={1}
+                        loop={true}
+                        modules={[Navigation, Pagination]}
+                        navigation
+                        pagination={{
+                            type: 'fraction',
+                        }}
+                        className="slider-img"
+                    >
+                        {listing.listingPhotoPaths?.map((photo, index) => (
+                            <SwiperSlide key={index} className="slide">
+                                <div className="swiper-container">
+                                    <img
+                                        src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
+                                        alt={`photo ${index + 1}`}
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+            ) : (
+                // If listingPhotoPaths is not found or empty, navigate to "/"
+                <Navigate to="/properties/notfound" replace={true} />
+            )}
+        </>
     );
 };
 

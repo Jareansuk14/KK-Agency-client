@@ -1,0 +1,38 @@
+@import "./variables.scss";
+
+.notfoundPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1000px;
+
+    .notfoundPage-container {
+        line-height: 60px;
+        width: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: $lightgrey;
+        height: 250px;
+        border-radius: 10px;
+        border: 2px solid;
+        color: rgb(238, 59, 59);
+
+        .gotohome {
+            font-size: 15px;
+            font-weight: 800;
+            border: 2px solid $blue;
+            color: $blue;
+            padding: 10px;
+            border-radius: 20px;
+            text-decoration: none;
+
+            &:hover {
+                color: $green;
+                background-color: $blue;
+                border: 2px solid $green;
+            }
+        }
+    }
+}

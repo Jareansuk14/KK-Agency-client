@@ -11,6 +11,7 @@ import SearchPage from "./pages/SearchPage";
 import TypePage from "./pages/TypePage";
 import PricerangePage from "./pages/PricerangePage";
 import FullimgPage from "./pages/FullimgPage";
+import NotfoundPage from "./pages/NotfoundPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/create-listing" element={<CreateListing />} />
           <Route path="/properties/:listingId" element={<ListingDetails />} />
           <Route path="/properties/fullimg/:listingId" element={<FullimgPage />} />
+          <Route path="/properties/notfound" element={<NotfoundPage />} />
           <Route path="/properties/category/:category" element={<CategoryPage />} />
           <Route path="/properties/pricerange/:pricerange" element={<PricerangePage />} />
           <Route path="/properties/type/:type" element={<TypePage />} />
