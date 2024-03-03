@@ -9,8 +9,9 @@ import 'swiper/css';
 import 'swiper/css/zoom';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Zoom } from 'swiper/modules';
+import { Navigation, Pagination, Zoom, EffectFade } from 'swiper/modules';
 
 const FullimgPage = () => {
 
@@ -51,7 +52,8 @@ const FullimgPage = () => {
                 spaceBetween={0}
                 slidesPerView={1}
                 loop={true}
-                modules={[Navigation, Pagination, Zoom]}
+                modules={[Navigation, Pagination, Zoom, EffectFade]}
+                effect={'fade'}
                 navigation
                 pagination={{
                     type: 'fraction',
