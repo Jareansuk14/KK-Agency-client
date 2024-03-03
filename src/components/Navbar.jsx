@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <a href="/">
-        <img src="/assets/logo_transparent2.png" alt="logo" />
+        <img src="/assets/Untitled-2.png" alt="logo" />
       </a>
 
       <div className="type-menu">
