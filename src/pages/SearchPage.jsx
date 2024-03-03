@@ -13,7 +13,7 @@ import Pagination from "../components/Pagination";
 const SearchPage = () => {
   //Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(20);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
   const [loading, setLoading] = useState(true)
   const { search } = useParams()

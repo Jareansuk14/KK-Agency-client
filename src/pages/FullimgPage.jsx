@@ -44,39 +44,31 @@ const FullimgPage = () => {
     ) : (
 
         <div className="fullimg-container">
-            <div className="listing-fullimg">
-                <div className="close" onClick={() => {
-                    navigate(`/properties/${listingId}`);
-                }} ><h1><IoClose /></h1></div>
-                <div className="listing-container">
-                    <div className="slider-listing">
-                        <Swiper
-                            zoom={true}
-                            speed={0}
-                            spaceBetween={1000}
-                            slidesPerView={1}
-                            loop={true}
-                            modules={[Navigation, Pagination, Zoom]}
-                            navigation
-                            pagination={{
-                                dynamicBullets: true,
-                            }}
-                            className="slider-img"
-                        >
-                            {listing.listingPhotoPaths?.map((photo, index) => (
-                                <SwiperSlide key={index} className="slide">
-                                    <div className="swiper-zoom-container">
-                                        <img
-                                            src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
-                                            alt={`photo ${index + 1}`}
-                                        />
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    </div>
-                </div>
-            </div>
+            <h1 className="close" onClick={() => { navigate(`/properties/${listingId}`); }} ><IoClose /></h1>
+            <Swiper
+                zoom={true}
+                speed={0}
+                spaceBetween={1000}
+                slidesPerView={1}
+                loop={true}
+                modules={[Navigation, Pagination, Zoom]}
+                navigation
+                pagination={{
+                    type: 'fraction',
+                }}
+                className="slider-img"
+            >
+                {listing.listingPhotoPaths?.map((photo, index) => (
+                    <SwiperSlide key={index} className="slide">
+                        <div className="swiper-zoom-container">
+                            <img
+                                src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
+                                alt={`photo ${index + 1}`}
+                            />
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </div>
     );
 };

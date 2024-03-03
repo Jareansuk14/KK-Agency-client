@@ -13,7 +13,7 @@ import Pagination from "../components/Pagination";
 const CategoryPage = () => {
   //Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(20);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
   const [loading, setLoading] = useState(true);
   const { pricerange } = useParams()
