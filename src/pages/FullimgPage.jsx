@@ -6,11 +6,10 @@ import { IoClose } from "react-icons/io5";
 
 // Import Swiper React components
 import 'swiper/css';
-import 'swiper/css/zoom';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Zoom } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 
 const FullimgPage = () => {
 
@@ -46,12 +45,11 @@ const FullimgPage = () => {
         <div className="fullimg-container">
             <h1 className="close" onClick={() => { navigate(`/properties/${listingId}`); }} ><IoClose /></h1>
             <Swiper
-                zoom={true}
                 speed={0}
                 spaceBetween={0}
                 slidesPerView={1}
                 loop={true}
-                modules={[Navigation, Pagination, Zoom]}
+                modules={[Navigation, Pagination]}
                 navigation
                 pagination={{
                     type: 'fraction',
