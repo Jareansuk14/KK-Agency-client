@@ -108,7 +108,7 @@ const ListingCard = ({
         <div className="slider-container-m">
           <Swiper
             speed={0}
-            spaceBetween={1000}
+            spaceBetween={0}
             slidesPerView={1}
             loop={true}
             modules={[Pagination]}

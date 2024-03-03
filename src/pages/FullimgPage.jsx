@@ -48,7 +48,7 @@ const FullimgPage = () => {
             <Swiper
                 zoom={true}
                 speed={0}
-                spaceBetween={1000}
+                spaceBetween={0}
                 slidesPerView={1}
                 loop={true}
                 modules={[Navigation, Pagination, Zoom]}
