@@ -6,6 +6,7 @@ import { IoClose } from "react-icons/io5";
 
 // Import Swiper React components
 import 'swiper/css';
+import 'swiper/css/zoom';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
