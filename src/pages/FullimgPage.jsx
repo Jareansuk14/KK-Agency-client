@@ -6,7 +6,6 @@ import { IoClose } from "react-icons/io5";
 
 // Import Swiper React components
 import 'swiper/css';
-import 'swiper/css/zoom';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -59,7 +58,7 @@ const FullimgPage = () => {
             >
                 {listing.listingPhotoPaths?.map((photo, index) => (
                     <SwiperSlide key={index} className="slide">
-                        <div className="swiper-zoom-container">
+                        <div className="swiper-container">
                             <img
                                 src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
                                 alt={`photo ${index + 1}`}

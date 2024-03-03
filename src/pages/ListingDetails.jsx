@@ -57,14 +57,11 @@ const ListingDetails = () => {
   ) : (
     <>
       <Navbar />
-
       <div className="listing-details">
-
         <div className="container">
-          <div className="slider-container">
             <Swiper
               speed={0}
-              spaceBetween={0}
+              spaceBetween={80}
               slidesPerView={1}
               loop={true}
               modules={[Navigation, Pagination]}
@@ -76,17 +73,18 @@ const ListingDetails = () => {
             >
               {listing.listingPhotoPaths?.map((photo, index) => (
                 <SwiperSlide key={index} className="slide">
-                  <img
-                    src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
-                    alt={`photo ${index + 1}`}
-                    onClick={() => {
-                      navigate(`/properties/fullimg/${listingId}`);
-                    }}
-                  />
+                  <div className="swiper-container">
+                    <img
+                      src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
+                      alt={`photo ${index + 1}`}
+                      onClick={() => {
+                        navigate(`/properties/fullimg/${listingId}`);
+                      }}
+                    />
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>
-          </div>
         </div>
 
         <h2 className="title-hero">
