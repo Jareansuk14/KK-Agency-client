@@ -6,7 +6,12 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer_left">
-        <a href="/"><img src="/assets/Untitled-2.png" alt="logo" /></a>
+        <a className="logobf" href="/">
+          <img src="/assets/icon5.png" alt="logo" />
+        </a>
+        <a className="logoaf" href="/">
+          <img src="/assets/icon8.png" alt="logo" />
+        </a>
       </div>
 
       <div className="footer_right">
@@ -17,9 +22,9 @@ const Footer = () => {
         </div>
         <div className="footer_right_info">
           <Email />
-          <p>kkagenz@gmail.com</p>
+          <p>kkagency@gmail.com</p>
         </div>
-        
+
         <div>
           <ul className="social-contact">
             <li><a href="#" className="facebook"><FaFacebookSquare /></a></li>

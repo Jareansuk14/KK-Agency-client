@@ -12,7 +12,7 @@ const Navbar = () => {
   const toggleDropdown = () => {
     setOpen(!isOpen);
   };
-  const closeMenu = () => { setOpen(false);};
+  const closeMenu = () => { setOpen(false); };
   const handleClick = () => {
     top()
     closeMenu();
@@ -22,9 +22,14 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <a href="/">
-        <img src="/assets/Untitled-2.png" alt="logo" />
-      </a>
+      <div className="logo">
+        <a className="logobf" href="/">
+          <img src="/assets/icon2.png" alt="logo" />
+        </a>
+        <a className="logoaf" href="/">
+          <img src="/assets/icon1.png" alt="logo" />
+        </a>
+      </div>
 
       <div className="type-menu">
         <Link to="/properties/type/บ้านเดี่ยว" className="type-menu-bar" onClick={top}>บ้านเดี่ยว</Link>

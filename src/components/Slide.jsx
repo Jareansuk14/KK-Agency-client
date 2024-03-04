@@ -16,7 +16,7 @@ const Slide = () => {
   return (
     <div className="slide">
       <h1>
-        KK Agenz <br />
+        KK Agency <br />
         รวมที่พักในขอนแก่น
 
         <div className="slide_search">

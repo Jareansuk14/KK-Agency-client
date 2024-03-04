@@ -20,25 +20,21 @@
       max-width: 100px;
     }
 
-    &_socials {
-      display: flex;
-      gap: 25px;
-      margin-top: 20px;
+    .logoaf {
+      display: none;
+    }
 
-      &_icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: $pinkred;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition: all 0.5s ease-in-out;
+    .logobf {
+      display: block;
+    }
 
-        &:hover {
-          transform: scale(1.2);
-        }
+    &:hover {
+      .logoaf {
+        display: block;
+      }
+
+      .logobf {
+        display: none;
       }
     }
   }
@@ -63,22 +59,25 @@
       display: none;
     }
 
-    .social-contact{
+    .social-contact {
       display: flex;
       justify-content: space-between;
       list-style: none;
       font-size: 25px;
 
-      .facebook{
+      .facebook {
         color: #316FF6;
       }
-      .youtube{
+
+      .youtube {
         color: #CD201F;
       }
-      .instagram{
+
+      .instagram {
         color: #000;
       }
-      .line{
+
+      .line {
         color: #00C300;
       }
     }

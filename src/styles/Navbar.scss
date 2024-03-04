@@ -20,6 +20,26 @@
     cursor: pointer;
   }
 
+  .logo {
+    .logoaf {
+      display: none;
+    }
+
+    .logobf {
+      display: block;
+    }
+
+    &:hover {
+      .logoaf {
+        display: block;
+      }
+
+      .logobf {
+        display: none;
+      }
+    }
+  }
+
   .type-menu {
     margin-left: 20px;
     margin-right: 20px;
@@ -155,8 +175,8 @@
 
       .range-price {
         display: flex;
-        
-        p{
+
+        p {
           color: $pinkred;
           margin-left: 23px;
           font-size: 18px;
