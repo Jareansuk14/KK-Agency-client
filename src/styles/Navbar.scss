@@ -29,13 +29,15 @@
       display: block;
     }
 
-    &:hover {
-      .logoaf {
-        display: block;
-      }
+    @media only screen and (min-width: 1024px) {
+      &:hover {
+        .logoaf {
+          display: block;
+        }
 
-      .logobf {
-        display: none;
+        .logobf {
+          display: none;
+        }
       }
     }
   }
