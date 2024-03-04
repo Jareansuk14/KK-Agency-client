@@ -150,7 +150,7 @@ const ListingDetails = () => {
               <ul>
                 <li><a className="call" onClick={PhoneCall}><IoCall sx={{ fontSize: "50px", color: "#FFF" }} /></a></li>
                 <li><a className="facebook" href="https://www.facebook.com/profile.php?id=100067895833848" target="_blank"><FaFacebookMessenger /></a></li>
-                <li><a className="line" href="https://lin.ee/QM42NEx"><FaLine /></a></li>
+                <li><a className="line" href="https://lin.ee/OfC9JTI"><FaLine /></a></li>
               </ul>
             </div>
           </div>

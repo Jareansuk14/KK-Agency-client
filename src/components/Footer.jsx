@@ -1,8 +1,12 @@
 import "../styles/Footer.scss"
-import { LocalPhone, Email } from "@mui/icons-material"
-import { FaFacebookSquare, FaInstagram, FaLine } from "react-icons/fa";
-import { IoLogoYoutube } from "react-icons/io5";
+import { IoCall } from "react-icons/io5";
+import { FaLine, FaFacebookMessenger } from "react-icons/fa6";
 const Footer = () => {
+  //button contact
+  const PhoneCall = () => {
+    const phoneNumber = '0616300453'; // replace with the phone number you want to call
+    window.open(`tel:${phoneNumber}`);
+  };
   return (
     <div className="footer">
       <div className="footer_left">
@@ -15,25 +19,12 @@ const Footer = () => {
       </div>
 
       <div className="footer_right">
-        <h3>Contact</h3>
-        <div className="footer_right_info">
-          <LocalPhone />
-          <p>+66 61-630-0453</p>
-        </div>
-        <div className="footer_right_info">
-          <Email />
-          <p>kkagency@gmail.com</p>
-        </div>
-
-        <div>
-          <ul className="social-contact">
-            <li><a href="#" className="facebook"><FaFacebookSquare /></a></li>
-            <li><a href="#" className="youtube"><IoLogoYoutube /></a></li>
-            <li><a href="#" className="instagram"><FaInstagram /></a></li>
-            <li><a href="#" className="line"><FaLine /></a></li>
-          </ul>
-        </div>
-
+        <h3>สนใจฝากปล่อยเช่า</h3>
+        <ul>
+          <li><a className="call" onClick={PhoneCall}><IoCall sx={{ fontSize: "50px", color: "#FFF" }} /></a></li>
+          <li><a className="facebook" href="https://www.facebook.com/profile.php?id=100067895833848" target="_blank"><FaFacebookMessenger /></a></li>
+          <li><a className="line" href="https://lin.ee/OfC9JTI"><FaLine /></a></li>
+        </ul>
       </div>
     </div>
   )
