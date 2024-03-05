@@ -41,7 +41,7 @@ const CategoryPage = () => {
   }, [category]);
 
   //get current posts and sortPosts
-  const sortedPosts = [...listings].sort(() => {return-1});
+  const sortedPosts = listings?.length ? [...listings].sort(() => -1) : [];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
@@ -95,12 +95,15 @@ const CategoryPage = () => {
           )
         )}
       </div>
-      <Pagination
+
+      {listings && (
+        <Pagination
           totalPosts={listings.length}
           postsPerPage={postsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
         />
+      )}
       <Footer />
     </>
   );

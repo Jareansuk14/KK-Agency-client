@@ -20,10 +20,10 @@ const CategoryPage = () => {
   const listings = useSelector((state) => state.listings);
   const dispatch = useDispatch()
   const getSearchListings = async () => {
-    try { 
-        const response = await fetch(`https://kkagency-api.onrender.com/properties/pricerange/${pricerange}`,{
-          method: "GET",
-        })
+    try {
+      const response = await fetch(`https://kkagency-api.onrender.com/properties/pricerange/${pricerange}`, {
+        method: "GET",
+      })
 
       const data = await response.json()
       dispatch(setListings({ listings: data }))
@@ -38,7 +38,7 @@ const CategoryPage = () => {
   }, [pricerange]);
 
   //get current posts and sortPosts
-  const sortedPosts = [...listings].sort(() => {return-1});
+  const sortedPosts = listings?.length ? [...listings].sort(() => -1) : [];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
@@ -92,12 +92,15 @@ const CategoryPage = () => {
           )
         )}
       </div>
-      <Pagination
+      
+      {listings && (
+        <Pagination
           totalPosts={listings.length}
           postsPerPage={postsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
         />
+      )}
       <Footer />
     </>
   );

@@ -37,14 +37,14 @@ const SearchPage = () => {
     getSearchListings()
   }, [search])
 
-      //get current posts and sortPosts
-      const sortedPosts = [...listings].sort(() => {return-1});
-      const indexOfLastPost = currentPage * postsPerPage;
-      const indexOfFirstPost = indexOfLastPost - postsPerPage;
-      const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
-    
-      //change Page
-      const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  //get current posts and sortPosts
+  const sortedPosts = listings?.length ? [...listings].sort(() => -1) : [];
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+  //change Page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return loading ? <Loader /> : (
     <>
@@ -90,12 +90,15 @@ const SearchPage = () => {
           )
         )}
       </div>
-      <Pagination
+
+      {listings && (
+        <Pagination
           totalPosts={listings.length}
           postsPerPage={postsPerPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
         />
+      )}
       <Footer />
     </>
   );
