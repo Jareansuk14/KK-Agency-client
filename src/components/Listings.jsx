@@ -39,7 +39,8 @@ const Listings = () => {
   }, [selectedCategory]);
 
   //get current posts and sortPosts
-  const sortedPosts = [...listings].sort(() => {return-1});
+  // const sortedPosts = [...listings].sort(() => {return-1});
+  const sortedPosts = listings?.length ? [...listings].sort(() => -1 ) : [];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
