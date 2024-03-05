@@ -94,13 +94,15 @@ const Listings = () => {
           )}
         </div>
       )}
-
-      <Paginationhome
+      
+      {listings && (
+        <Paginationhome
         totalPosts={listings.length}
         postsPerPage={postsPerPage}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
+      )}
     </div>
   );
 };
