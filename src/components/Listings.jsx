@@ -9,7 +9,7 @@ import Paginationhome from "./Paginationhome";
 const Listings = () => {
   //Pagination 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage, setPostsPerPage] = useState(6);
 
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
