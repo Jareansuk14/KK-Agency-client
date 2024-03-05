@@ -8,11 +8,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { setWishList } from "../redux/state";
 
 // Import Swiper React components
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Pagination } from 'swiper/modules';
 
 const ListingCard = ({
   listingId,
@@ -104,7 +104,7 @@ const ListingCard = ({
         </div>
       </div>
 
-      <div className="container">
+      {/* <div className="container">
         <div className="slider-container-m">
           <Swiper
             speed={0}
@@ -127,7 +127,7 @@ const ListingCard = ({
             ))}
           </Swiper>
         </div>
-      </div>
+      </div> */}
 
       <h3>
         {aptSuite}
