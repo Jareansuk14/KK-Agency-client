@@ -9,6 +9,7 @@ import ListingCard from "../components/ListingCard";
 import Footer from "../components/Footer"
 import Categorylist from "../components/Categorylist";
 import Pagination from "../components/Pagination";
+import { Helmet } from 'react-helmet';
 
 const SearchPage = () => {
   //Pagination
@@ -48,6 +49,10 @@ const SearchPage = () => {
 
   return loading ? <Loader /> : (
     <>
+      <Helmet>
+        <title>{search} | KK Agency</title>
+      </Helmet>
+
       <Navbar />
       <Categorylist />
       <h1 className="title-list">ผลการค้นหา : {search}</h1>

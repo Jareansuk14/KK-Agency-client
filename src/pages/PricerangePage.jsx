@@ -9,6 +9,7 @@ import ListingCard from "../components/ListingCard";
 import Footer from "../components/Footer"
 import Categorylist from "../components/Categorylist";
 import Pagination from "../components/Pagination";
+import { Helmet } from 'react-helmet';
 
 const CategoryPage = () => {
   //Pagination
@@ -50,6 +51,11 @@ const CategoryPage = () => {
     <Loader />
   ) : (
     <>
+      <Helmet>
+        <title>รวมประกาศที่พักให้เช่าในขอนแก่น ราคา{pricerange} | KK Agency</title>
+        <meta name="description" content="KKAgency รวมประกาศ ให้เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ็งร้าน เซ็งกิจการ ในจังหวัดขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
+      </Helmet>
+
       <Navbar />
       <Categorylist />
       <h1 className="title-list">รวมที่พักราคา {pricerange} บาท</h1>
@@ -92,7 +98,7 @@ const CategoryPage = () => {
           )
         )}
       </div>
-      
+
       {listings && (
         <Pagination
           totalPosts={listings.length}

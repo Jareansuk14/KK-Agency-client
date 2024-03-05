@@ -10,7 +10,8 @@ import LocationOnSharpIcon from '@mui/icons-material/LocationOnSharp';
 import { BedOutlined, ShowerOutlined, Restaurant, SquareFoot } from '@mui/icons-material/';
 import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
+import { Helmet } from 'react-helmet';
 
 // Import Swiper React components
 import 'swiper/css';
@@ -58,6 +59,11 @@ const ListingDetails = () => {
     <>
       {listing && listing.listingPhotoPaths && listing.listingPhotoPaths.length > 0 ? (
         <>
+          <Helmet>
+            <title>{listing.title}</title>
+            <meta name="description" content="KKAgency รวมประกาศ ให้เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ็งร้าน เซ็งกิจการ ในจังหวัดขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
+          </Helmet>
+          
           <Navbar />
           <div className="listing-details">
             <div className="container">
