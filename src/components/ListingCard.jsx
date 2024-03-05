@@ -108,7 +108,6 @@ const ListingCard = ({
             speed={0}
             spaceBetween={0}
             slidesPerView={1}
-            loop={true}
             modules={[Pagination]}
             pagination={{
               dynamicBullets: true,
