@@ -60,7 +60,7 @@ const ListingDetails = () => {
         <>
           <Helmet>
             <title>{listing.title}</title>
-            <meta name="description" content="KKAgency รวมประกาศ ให้เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ็งร้าน เซ็งกิจการ ในจังหวัดขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
+            <meta name="description" content={listing.description} />
           </Helmet>
           
           <Navbar />
