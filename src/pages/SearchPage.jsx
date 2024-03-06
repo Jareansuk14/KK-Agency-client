@@ -47,7 +47,7 @@ const SearchPage = () => {
   //change Page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  return loading ? <Loader /> : (
+  return (
     <>
       <Helmet>
         <title>{search} | KK Agency</title>
@@ -56,57 +56,75 @@ const SearchPage = () => {
       <Navbar />
       <Categorylist />
       <h1 className="title-list">ผลการค้นหา : {search}</h1>
-      <div className="list">
-        {currentPosts?.map(
-          ({
-            _id,
-            creator,
-            aptSuite,
-            listingPhotoPaths,
-            bedroomCount,
-            bathroomCount,
-            area,
-            city,
-            province,
-            country,
-            category,
-            type,
-            contract,
-            statusroom,
-            price,
-          }) => (
-            <ListingCard
-              listingId={_id}
-              creator={creator}
-              aptSuite={aptSuite}
-              listingPhotoPaths={listingPhotoPaths}
-              bedroomCount={bedroomCount}
-              bathroomCount={bathroomCount}
-              area={area}
-              city={city}
-              province={province}
-              country={country}
-              category={category}
-              type={type}
-              contract={contract}
-              statusroom={statusroom}
-              price={price}
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          {currentPosts.length === 0 ? (
+            <div className="no-listings">
+              <div className="no-listings-message">
+                <h2>เราไม่พบประกาศจากคำค้นหา <br />
+                  "{search}" <br />
+                  กรุณาลองใหม่อีกครั้ง !!! <br />
+                  <img src="/assets/sad.png" alt="logo" />
+                </h2>
+              </div>
+            </div>
+          ) : (
+            <div className="list">
+              {currentPosts.map(
+                ({
+                  _id,
+                  creator,
+                  aptSuite,
+                  listingPhotoPaths,
+                  bedroomCount,
+                  bathroomCount,
+                  area,
+                  city,
+                  province,
+                  country,
+                  category,
+                  type,
+                  contract,
+                  statusroom,
+                  price,
+                }) => (
+                  <ListingCard
+                    key={_id}
+                    listingId={_id}
+                    creator={creator}
+                    aptSuite={aptSuite}
+                    listingPhotoPaths={listingPhotoPaths}
+                    bedroomCount={bedroomCount}
+                    bathroomCount={bathroomCount}
+                    area={area}
+                    city={city}
+                    province={province}
+                    country={country}
+                    category={category}
+                    type={type}
+                    contract={contract}
+                    statusroom={statusroom}
+                    price={price}
+                  />
+                )
+              )}
+            </div>
+          )}
+          {listings && (
+            <Pagination
+              totalPosts={listings.length}
+              postsPerPage={postsPerPage}
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
             />
-          )
-        )}
-      </div>
-
-      {listings && (
-        <Pagination
-          totalPosts={listings.length}
-          postsPerPage={postsPerPage}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}
-        />
+          )}
+        </>
       )}
       <Footer />
     </>
   );
-}
+};
 
 export default SearchPage

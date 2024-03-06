@@ -21,6 +21,7 @@ const Slide = () => {
 
         <div className="slide_search">
           <input
+            maxLength={40}
             type="text"
             placeholder="ค้นหาง่าย..."
             value={search}
