@@ -4,7 +4,7 @@ import { FaLine, FaFacebookMessenger } from "react-icons/fa6";
 const Footer = () => {
   //button contact
   const PhoneCall = () => {
-    const phoneNumber = '0616300453'; // replace with the phone number you want to call
+    const phoneNumber = '0990554324'; // replace with the phone number you want to call
     window.open(`tel:${phoneNumber}`);
   };
   return (

@@ -10,7 +10,6 @@ import LocationOnSharpIcon from '@mui/icons-material/LocationOnSharp';
 import { BedOutlined, ShowerOutlined, Restaurant, SquareFoot } from '@mui/icons-material/';
 import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { Helmet } from 'react-helmet';
 
 // Import Swiper React components
@@ -24,7 +23,7 @@ const ListingDetails = () => {
 
   //button contact
   const PhoneCall = () => {
-    const phoneNumber = '0616300453'; // replace with the phone number you want to call
+    const phoneNumber = '0990554324'; // replace with the phone number you want to call
     window.open(`tel:${phoneNumber}`);
   };
 
@@ -160,7 +159,6 @@ const ListingDetails = () => {
               </ul>
             </div>
           </div>
-          <Footer />
         </>
       ) : (
         // If listingPhotoPaths is not found or empty, navigate to "/"
