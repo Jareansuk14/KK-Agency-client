@@ -35,3 +35,29 @@
     padding: 0 20px 30px;
   }
 }
+
+.no-listings {
+  margin: 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .no-listings-message {
+    line-height: 45px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: $lightgrey;
+    height: 265px;
+    border-radius: 10px;
+    border: 2px solid $blue;
+    color: rgb(238, 59, 59);
+  }
+
+  img {
+    margin-top: 10px;
+    width: 70px;
+  }
+}

@@ -50,65 +50,81 @@ const CategoryPage = () => {
   //change Page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  return loading ? (
-    <Loader />
-  ) : (
+  return (
     <>
       <Helmet>
         <title>รวมประกาศที่พักให้เช่าในขอนแก่น ใกล้{category} | KK Agency</title>
-        <meta name="description" content="รวมประกาศ ให้เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ็งร้าน เซ็งกิจการ ในจังหวัดขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
+        <meta name="description" content="KKAgency รวมประกาศ ให้เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ็งร้าน เซ็งกิจการ ในจังหวัดขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
       </Helmet>
 
       <Navbar />
       <Categorylist />
       <h1 className="title-list">ที่พักใกล้{category}</h1>
-      <div className="list">
-        {currentPosts?.map(
-          ({
-            _id,
-            creator,
-            aptSuite,
-            listingPhotoPaths,
-            bedroomCount,
-            bathroomCount,
-            area,
-            city,
-            province,
-            country,
-            category,
-            type,
-            contract,
-            statusroom,
-            price,
-          }) => (
-            <ListingCard
-              listingId={_id}
-              creator={creator}
-              aptSuite={aptSuite}
-              listingPhotoPaths={listingPhotoPaths}
-              bedroomCount={bedroomCount}
-              bathroomCount={bathroomCount}
-              area={area}
-              city={city}
-              province={province}
-              country={country}
-              category={category}
-              type={type}
-              contract={contract}
-              statusroom={statusroom}
-              price={price}
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          {currentPosts.length === 0 ? (
+            <div className="no-listings">
+              <div className="no-listings-message">
+                <h2>ตอนนี้เรายังไม่มีที่พักใกล้ <br />
+                  "{category}" <br />
+                  ว่างเลย !!! <br />
+                  <img src="/assets/sad.png" alt="logo" />
+                </h2>
+              </div>
+            </div>
+          ) : (
+            <div className="list">
+              {currentPosts.map(
+                ({
+                  _id,
+                  creator,
+                  aptSuite,
+                  listingPhotoPaths,
+                  bedroomCount,
+                  bathroomCount,
+                  area,
+                  city,
+                  province,
+                  country,
+                  category,
+                  type,
+                  contract,
+                  statusroom,
+                  price,
+                }) => (
+                  <ListingCard
+                    key={_id}
+                    listingId={_id}
+                    creator={creator}
+                    aptSuite={aptSuite}
+                    listingPhotoPaths={listingPhotoPaths}
+                    bedroomCount={bedroomCount}
+                    bathroomCount={bathroomCount}
+                    area={area}
+                    city={city}
+                    province={province}
+                    country={country}
+                    category={category}
+                    type={type}
+                    contract={contract}
+                    statusroom={statusroom}
+                    price={price}
+                  />
+                )
+              )}
+            </div>
+          )}
+          {listings && (
+            <Pagination
+              totalPosts={listings.length}
+              postsPerPage={postsPerPage}
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
             />
-          )
-        )}
-      </div>
-
-      {listings && (
-        <Pagination
-          totalPosts={listings.length}
-          postsPerPage={postsPerPage}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}
-        />
+          )}
+        </>
       )}
       <Footer />
     </>
