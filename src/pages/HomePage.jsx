@@ -11,6 +11,7 @@ const HomePage = () => {
     <>
       <Helmet>
         <title>รวมประกาศที่พักให้เช่าในขอนแก่น | KK Agency</title>
+        <link rel="canonical" href="https://www.khonkaenagency.com/" />
         <meta name="description" content="รวมประกาศ ให้เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ็งร้าน เซ็งกิจการ ในจังหวัดขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
       </Helmet>
       
