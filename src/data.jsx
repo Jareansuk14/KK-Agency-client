@@ -104,7 +104,7 @@ export const categories = [
   },
   {
     img: "assets/lux_cat.jpg",
-    label: "โนนตุ๋น - กุดกว้าง",
+    label: "โนนตุ่น - กุดกว้าง",
     icon: <IoHomeOutline />,
     description: "This property is brand new and luxurious!",
   },
