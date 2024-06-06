@@ -16,7 +16,7 @@ const Slide = () => {
   return (
     <div className="slide">
       <h1>
-        <img width={250} src="../../public/assets/New logo.png" alt="" />
+        <img width={250} src="/assets/New logo.png" alt="" />
         <br />
         รวมที่พักในขอนแก่น
 
