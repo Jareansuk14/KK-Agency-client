@@ -1,65 +1,122 @@
-import { useState, useEffect } from "react";
-import "../styles/List.scss";
-import Navbar from "../components/Navbar";
+import React, { useState, useEffect, useCallback } from "react";
+import { Helmet } from 'react-helmet';
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setListings } from "../redux/state";
+import Navbar from "../components/Navbar";
 import Loader from "../components/Loader";
 import ListingCard from "../components/ListingCard";
-import Footer from "../components/Footer"
+import ListingCardSell from "../components/ListingCardSell";
+import Footer from "../components/Footer";
 import Categorylist from "../components/Categorylist";
 import Pagination from "../components/Pagination";
-import { Helmet } from 'react-helmet';
+import "../styles/List.scss";
+
+const CATEGORIES = {
+  ALL: "ทั้งหมด",
+  RENT: "เช่า",
+  SELL: "ขาย",
+};
+
+const LISTINGS_URL = "http://kkagency-api.onrender.com/properties";
+const LISTINGS_SELL_URL = "http://kkagency-api.onrender.com/propertiesforsell";
 
 const CategoryPage = () => {
-  //Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
-
+  const [postsPerPage] = useState(10);
   const [loading, setLoading] = useState(true);
-  const { category } = useParams()
-  const dispatch = useDispatch()
+  const { category } = useParams();
   const listings = useSelector((state) => state.listings);
-  const getFeedListings = async () => {
-    try {
-      const response = await fetch(
-        `https://kkagency-api.onrender.com/properties?category=${category}`,
-        {
-          method: "GET",
-        }
-      );
+  const dispatch = useDispatch();
+  const [selectedCategory, setSelectedCategory] = useState(CATEGORIES.ALL);
 
-      const data = await response.json();
-      dispatch(setListings({ listings: data }));
-      setLoading(false);
-    } catch (err) {
-      console.log("Fetch Listings Failed", err.message);
+  const fetchListings = async (url, listingCategory) => {
+    const response = await fetch(url, { method: "GET" });
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data from ${url}`);
     }
+    const data = await response.json();
+    return data.map((item) => ({ ...item, listingCategory }));
   };
 
-  useEffect(() => {
-    getFeedListings();
-  }, [category]);
+  const getSearchListings = useCallback(async () => {
+    try {
+      setLoading(true);
+      let data = [];
 
-  //get current posts and sortPosts
-  const sortedPosts = listings?.length ? [...listings].sort(() => -1) : [];
+      if (selectedCategory === CATEGORIES.RENT) {
+        data = await fetchListings(`${LISTINGS_URL}?category=${category}`, CATEGORIES.RENT);
+      } else if (selectedCategory === CATEGORIES.SELL) {
+        const fetchedData = await fetchListings(`${LISTINGS_SELL_URL}?category=${category}`, CATEGORIES.SELL);
+        data = fetchedData.filter(listing => listing.category === category);
+      } else { // selectedCategory === CATEGORIES.ALL
+        const [dataRent, dataSell] = await Promise.all([
+          fetchListings(`${LISTINGS_URL}?category=${category}`, CATEGORIES.RENT),
+          fetchListings(`${LISTINGS_SELL_URL}?category=${category}`, CATEGORIES.SELL),
+        ]);
+        data = [...dataRent, ...dataSell.filter(listing => listing.category === category)];
+      }
+
+      dispatch(setListings({ listings: data }));
+    } catch (err) {
+      console.error("Fetch Listings Failed", err.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [category, selectedCategory, dispatch]);
+
+  useEffect(() => {
+    getSearchListings();
+  }, [getSearchListings]);
+
+  const sortedPosts = listings?.length ? [...listings].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : [];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
-  //change Page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = useCallback((pageNumber) => setCurrentPage(pageNumber), []);
+
+  const renderTitle = () => `รวมประกาศใกล้ ${category}`;
+
+  const renderNoListingsMessage = () => {
+    const messagePrefix = `ตอนนี้เรายังไม่มีประกาศ`;
+    const messageSuffix = selectedCategory === CATEGORIES.RENT ? "ให้เช่าเลย !!!" : selectedCategory === CATEGORIES.SELL ? "ขายเลย !!!" : "เลย !!!";
+    return (
+      <h2>
+        {messagePrefix}
+        <br />
+        {messageSuffix}
+        <br />
+        <img src="/assets/sad.png" alt="logo" />
+      </h2>
+    );
+  };
 
   return (
     <>
       <Helmet>
-        <title>รวมประกาศที่พักให้เช่าในขอนแก่น ใกล้{category} | KK Agency</title>
-        <meta name="description" content="KKAgency รวมประกาศ ให้เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ็งร้าน เซ็งกิจการ ในจังหวัดขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
+        <title>รวมประกาศในหมวดหมู่ {category} | ใกล้ฉัน</title>
+        <meta name="description" content="ใกล้ฉัน รวมประกาศ ขาย เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ้งร้าน เซ้งกิจการ ขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
       </Helmet>
 
       <Navbar />
       <Categorylist />
-      <h1 className="title-list">ที่พักใกล้{category}</h1>
+      <h1 className="title-list">{renderTitle()}</h1>
+      <div className="buttons-container">
+        <div className="buttons-container2">
+          <div className="buttons">
+            {Object.entries(CATEGORIES).map(([key, value]) => (
+              <button
+                key={key}
+                onClick={() => setSelectedCategory(value)}
+                className={selectedCategory === value ? "active" : ""}
+              >
+                {value}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
       {loading ? (
         <Loader />
       ) : (
@@ -67,56 +124,23 @@ const CategoryPage = () => {
           {currentPosts.length === 0 ? (
             <div className="no-listings">
               <div className="no-listings-message">
-                <h2>ตอนนี้เรายังไม่มีที่พักใกล้ <br />
-                  "{category}" <br />
-                  ว่างเลย !!! <br />
-                  <img src="/assets/sad.png" alt="logo" />
-                </h2>
+                {renderNoListingsMessage()}
               </div>
             </div>
           ) : (
             <div className="list">
-              {currentPosts.map(
-                ({
-                  _id,
-                  creator,
-                  aptSuite,
-                  listingPhotoPaths,
-                  bedroomCount,
-                  bathroomCount,
-                  area,
-                  city,
-                  province,
-                  country,
-                  category,
-                  type,
-                  contract,
-                  statusroom,
-                  price,
-                }) => (
-                  <ListingCard
-                    key={_id}
-                    listingId={_id}
-                    creator={creator}
-                    aptSuite={aptSuite}
-                    listingPhotoPaths={listingPhotoPaths}
-                    bedroomCount={bedroomCount}
-                    bathroomCount={bathroomCount}
-                    area={area}
-                    city={city}
-                    province={province}
-                    country={country}
-                    category={category}
-                    type={type}
-                    contract={contract}
-                    statusroom={statusroom}
-                    price={price}
-                  />
-                )
-              )}
+              {currentPosts.map((listing) => (
+                <div key={listing._id}>
+                  {listing.listingCategory === CATEGORIES.SELL ? (
+                    <ListingCardSell {...listing} />
+                  ) : (
+                    <ListingCard {...listing} />
+                  )}
+                </div>
+              ))}
             </div>
           )}
-          {listings && (
+          {listings.length > 0 && (
             <Pagination
               totalPosts={listings.length}
               postsPerPage={postsPerPage}

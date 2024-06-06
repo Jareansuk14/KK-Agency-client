@@ -11,10 +11,10 @@ const Footer = () => {
     <div className="footer">
       <div className="footer_left">
         <a className="logobf" href="/">
-          <img src="/assets/icon5.png" alt="logo" />
+          <img src="/assets/Logo.png" alt="logo" />
         </a>
         <a className="logoaf" href="/">
-          <img src="/assets/icon8.png" alt="logo" />
+          <img src="/assets/Logo wow.png" alt="logo" />
         </a>
       </div>
 

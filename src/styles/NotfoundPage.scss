@@ -1,10 +1,10 @@
 @import "./variables.scss";
 
 .notfoundPage {
+    background-color: $egg;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
     height: 100vh;
 
     .notfoundPage-container {
@@ -30,9 +30,8 @@
             text-decoration: none;
 
             &:hover {
-                color: $green;
-                background-color: $blue;
-                border: 2px solid $green;
+                color: $darkorange;
+                border: 2px solid $darkorange;
             }
         }
     }

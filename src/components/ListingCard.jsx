@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 
 const ListingCard = ({
+  _id,
   listingId,
   creator,
   aptSuite,
@@ -64,7 +65,7 @@ const ListingCard = ({
     <div
       className="listing-card"
       onClick={() => {
-        navigate(`/properties/${listingId}`);
+        navigate(`/properties/${_id}`);
       }}
     >
 

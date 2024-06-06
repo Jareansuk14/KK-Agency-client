@@ -1,11 +1,14 @@
 @import "./breakpoints.scss";
 @import "./variables.scss";
 
+body {
+  background-color: $egg;
+}
 
 .title-list {
   display: flex;
   margin: 30px 0px 40px 100px;
-  color: $blue;
+  color: $darkorange;
 
   @include xl {
     justify-content: center;
@@ -21,6 +24,49 @@
     justify-content: center;
     margin: 30px 0px 30px 0px;
     font-size: 25px;
+  }
+}
+
+.buttons-container {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+
+  .buttons-container2 {
+    border: none;
+    border-radius: 30px;
+    background-color:$lightgrey;
+
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    margin: 0px 10px;
+
+    .buttons {
+      width: 300px;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+
+      button {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        font-size: 22px;
+        font-weight: 650;
+        color: $blue;
+        border-radius: 20px;
+        width: 80px;
+        height: 50px;
+      }
+
+      button.active{
+        background-color:$darkorange;
+        color: $lightgrey;
+      }
+    }
   }
 }
 
@@ -49,11 +95,9 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: $lightgrey;
     height: 265px;
     border-radius: 10px;
-    border: 2px solid $blue;
-    color: rgb(238, 59, 59);
+    color: rgb(251, 36, 36);
   }
 
   img {

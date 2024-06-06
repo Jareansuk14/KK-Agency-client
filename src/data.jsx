@@ -121,7 +121,7 @@ export const types = [
     icon: <FaRegBuilding />,
   },
   {
-    name: "เซ็งธุรกิจ",
+    name: "เซ้งธุรกิจ",
     icon: <FaPeopleRoof />,
   },
   {

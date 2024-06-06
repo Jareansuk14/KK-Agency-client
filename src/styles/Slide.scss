@@ -42,6 +42,12 @@
     }
   }
 
+  .slide_search {
+    ::placeholder {
+      color: white;
+    }
+  }
+
   &_search {
     margin-top: 10px;
     border: 1px solid $grey;
@@ -66,4 +72,3 @@
     }
   }
 }
-

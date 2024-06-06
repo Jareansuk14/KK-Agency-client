@@ -1,8 +1,8 @@
 import "../styles/CreateListing.scss";
 import Navbar from "../components/Navbar";
 import { categories, types, facilities, prices } from "../data";
-import Cleave from 'cleave.js/react';
 import { RemoveCircleOutline, AddCircleOutline } from "@mui/icons-material";
+import Cleave from 'cleave.js/react';
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { IoIosImages } from "react-icons/io";
 import { useState } from "react";
@@ -11,8 +11,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer"
 
-const CreateListing = () => {
-  const [pricerange, setPricerange] = useState("");
+const CreateListingforsell = () => {
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
 
@@ -84,7 +83,6 @@ const CreateListing = () => {
     description: "",
     highlight: "",
     highlightDesc: "",
-    contract: "",
     statusroom: "",
     price: "",
   });
@@ -108,7 +106,6 @@ const CreateListing = () => {
       /* Create a new FormData onject to handle file uploads */
       const listingForm = new FormData();
       listingForm.append("creator", creatorId);
-      listingForm.append("pricerange", pricerange);
       listingForm.append("category", category);
       listingForm.append("type", type);
       listingForm.append("location", formLocation.location);
@@ -127,7 +124,6 @@ const CreateListing = () => {
       listingForm.append("description", formDescription.description);
       listingForm.append("highlight", formDescription.highlight);
       listingForm.append("highlightDesc", formDescription.highlightDesc);
-      listingForm.append("contract", formDescription.contract);
       listingForm.append("statusroom", formDescription.statusroom);
       listingForm.append("price", formDescription.price);
 
@@ -137,7 +133,7 @@ const CreateListing = () => {
       });
 
       /* Send a POST request to server */
-      const response = await fetch("https://kkagency-api.onrender.com/properties/create", {
+      const response = await fetch("http://kkagency-api.onrender.com/propertiesforsell/createforsell", {
         method: "POST",
         body: listingForm,
       });
@@ -154,11 +150,12 @@ const CreateListing = () => {
       <Navbar />
 
       <div className="create-listing">
-        <h1>ลงประกาศเช่า</h1>
+        <h1>ลงประกาศขาย</h1>
         <form onSubmit={handlePost}>
           <div className="create-listing_step1">
             <h2>ขั้นตอนที่ 1: เกี่ยวกับสถานที่พักของคุณ</h2>
             <hr />
+            
             <h3>โซนไหนต่อไปนี้ตรงกับสถานที่พักของคุณมากที่สุด?</h3>
             <div className="category-list">
               {categories?.map((item, index) => (
@@ -525,27 +522,13 @@ const CreateListing = () => {
                 onChange={handleChangeDescription}
                 required
               />
-              <p>ค่าประกันและค่าเช่าล่วงหน้า</p>
+              <p>ค่าใช้จ่ายวันโอน</p>
               <textarea
                 type="text"
-                placeholder="ค่าประกันและค่าเช่าล่วงหน้า"
+                placeholder="ค่าใช้จ่ายวันโอน"
                 name="highlightDesc"
                 value={formDescription.highlightDesc}
                 onChange={handleChangeDescription}
-                required
-              />
-              
-              <p>สัญญาขั้นต่ำ (เดือน)</p>
-              <Cleave
-                placeholder="12"
-                options={{
-                  numeral: true,
-                  numeralThousandsGroupStyle: 'thousand'
-                }}
-                name="contract"
-                value={formDescription.contract}
-                onChange={handleChangeDescription}
-                className="contract"
                 required
               />
 
@@ -574,20 +557,6 @@ const CreateListing = () => {
                 required
               />
               <span>฿</span>
-
-              <h3>ช่วงราคา (บาท)</h3>
-              <div className="prices-list">
-                {prices?.map((item, index) => (
-                  <div
-                    className={`pricerange ${pricerange === item.label ? "selected" : ""
-                      }`}
-                    key={index}
-                    onClick={() => setPricerange(item.label)}
-                  >
-                    <h5>{item.label}</h5>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
 
@@ -602,4 +571,4 @@ const CreateListing = () => {
   );
 };
 
-export default CreateListing;
+export default CreateListingforsell;

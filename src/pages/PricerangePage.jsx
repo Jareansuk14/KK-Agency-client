@@ -1,62 +1,74 @@
 import { useState, useEffect } from "react";
-import "../styles/List.scss";
-import Navbar from "../components/Navbar";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { Helmet } from "react-helmet";
 import { setListings } from "../redux/state";
+import Navbar from "../components/Navbar";
 import Loader from "../components/Loader";
 import ListingCard from "../components/ListingCard";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
 import Categorylist from "../components/Categorylist";
 import Pagination from "../components/Pagination";
-import { Helmet } from 'react-helmet';
+import "../styles/List.scss";
 
-const CategoryPage = () => {
-  //Pagination
+const PricerangePage = () => {
+  // Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage] = useState(10);
 
+  // Loading state
   const [loading, setLoading] = useState(true);
-  const { pricerange } = useParams()
+
+  // Fetch parameter from URL
+  const { pricerange } = useParams();
+
+  // Redux state and dispatch
   const listings = useSelector((state) => state.listings);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  // Fetch listings based on price range
   const getSearchListings = async () => {
     try {
-      const response = await fetch(`https://kkagency-api.onrender.com/properties/pricerange/${pricerange}`, {
+      const response = await fetch(`http://kkagency-api.onrender.com/properties/pricerange/${pricerange}`, {
         method: "GET",
-      })
+      });
 
-      const data = await response.json()
-      dispatch(setListings({ listings: data }))
-      setLoading(false)
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      dispatch(setListings({ listings: data }));
+      setLoading(false);
     } catch (err) {
-      console.log("Fetch Listings Failed", err.message)
+      console.log("Fetch Listings Failed", err.message);
     }
-  }
+  };
 
+  // Fetch listings on component mount and when pricerange changes
   useEffect(() => {
     getSearchListings();
   }, [pricerange]);
 
-  //get current posts and sortPosts
+  // Pagination logic
   const sortedPosts = listings?.length ? [...listings].sort(() => -1) : [];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
-  //change Page
+  // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <>
       <Helmet>
-        <title>รวมประกาศที่พักให้เช่าในขอนแก่น ราคา{pricerange} | KK Agency</title>
-        <meta name="description" content="KKAgency รวมประกาศ ให้เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ็งร้าน เซ็งกิจการ ในจังหวัดขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
+        <title>รวมประกาศที่พักให้เช่าในขอนแก่น ราคา{pricerange} | ใกล้ฉัน</title>
+        <meta name="description" content="ใกล้ฉัน รวมประกาศ ขาย เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ้งร้าน เซ้งกิจการ ขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
       </Helmet>
 
       <Navbar />
       <Categorylist />
-      <h1 className="title-list">รวมที่พักราคา {pricerange} บาท</h1>
+      <h1 className="title-list">รวมประกาศราคา {pricerange} บาท</h1>
       {loading ? (
         <Loader />
       ) : (
@@ -64,53 +76,36 @@ const CategoryPage = () => {
           {currentPosts.length === 0 ? (
             <div className="no-listings">
               <div className="no-listings-message">
-                <h2>ตอนนี้เรายังไม่มีที่พักราคา <br />
-                  "{pricerange} บาท" <br />
-                  ว่างเลย !!! <br />
-                  <img src="/assets/sad.png" alt="logo" />
+                <h2>
+                  ยังไม่มีประกาศว่างเลย !!!
+                  <br />
+                  <img src="/assets/Logo sad.png" alt="logo" />
                 </h2>
               </div>
             </div>
           ) : (
             <div className="list">
-              {currentPosts.map(
-                ({
-                  _id,
-                  creator,
-                  aptSuite,
-                  listingPhotoPaths,
-                  bedroomCount,
-                  bathroomCount,
-                  area,
-                  city,
-                  province,
-                  country,
-                  category,
-                  type,
-                  contract,
-                  statusroom,
-                  price,
-                }) => (
-                  <ListingCard
-                    key={_id}
-                    listingId={_id}
-                    creator={creator}
-                    aptSuite={aptSuite}
-                    listingPhotoPaths={listingPhotoPaths}
-                    bedroomCount={bedroomCount}
-                    bathroomCount={bathroomCount}
-                    area={area}
-                    city={city}
-                    province={province}
-                    country={country}
-                    category={category}
-                    type={type}
-                    contract={contract}
-                    statusroom={statusroom}
-                    price={price}
-                  />
-                )
-              )}
+              {currentPosts.map((listing) => (
+                <ListingCard
+                  key={listing._id}
+                  _id={listing._id}
+                  listingId={listing.listingId}
+                  creator={listing.creator}
+                  aptSuite={listing.aptSuite}
+                  listingPhotoPaths={listing.listingPhotoPaths}
+                  bedroomCount={listing.bedroomCount}
+                  bathroomCount={listing.bathroomCount}
+                  area={listing.area}
+                  city={listing.city}
+                  province={listing.province}
+                  country={listing.country}
+                  category={listing.category}
+                  type={listing.type}
+                  contract={listing.contract}
+                  statusroom={listing.statusroom}
+                  price={listing.price}
+                />
+              ))}
             </div>
           )}
           {listings && (
@@ -128,4 +123,4 @@ const CategoryPage = () => {
   );
 };
 
-export default CategoryPage;
+export default PricerangePage;

@@ -5,9 +5,9 @@
     position: sticky;
     top: 72px;
     z-index: 9998;
-    background-color: #fff;
+    background-color: $egg;
     box-shadow: 2px 4px 8px 0 rgba(56, 75, 108, 0.1);
-    
+
     .swiper-container {
         &.swiper {
             --swiper-navigation-size: 50px;
@@ -47,8 +47,6 @@
             }
 
             .category {
-                border: 1px solid $blue;
-                border-radius: 10px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -67,7 +65,7 @@
                 }
 
                 &:hover {
-                    color: $pinkred;
+                    color:#ff7300c6;
                 }
             }
 

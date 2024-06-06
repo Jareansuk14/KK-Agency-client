@@ -5,7 +5,7 @@
     display: none;
     align-items: center;
     position: relative;
-    background-color: #FFF;
+    background-color: #fff;
 
     @include ml {
         display: flex;
@@ -40,7 +40,7 @@
             padding: 10px 0;
             border: 1px solid $lightgrey;
             @include shadow;
-            z-index: 9999;
+            z-index: 9997;
 
             a {
                 display: flex;
@@ -55,6 +55,16 @@
                     color: $pinkred;
                     background-color: rgba(217, 213, 213, 0.2);
                 }
+            }
+        }
+
+        .range-price {
+
+            p {
+                color: $blue;
+                margin-left: 30px;
+                font-size: 15px;
+                font-weight: 700;
             }
         }
     }

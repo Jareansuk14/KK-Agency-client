@@ -16,7 +16,8 @@ const Slide = () => {
   return (
     <div className="slide">
       <h1>
-        KK Agency <br />
+        <img width={250} src="../../public/assets/New logo.png" alt="" />
+        <br />
         รวมที่พักในขอนแก่น
 
         <div className="slide_search">

@@ -1,62 +1,130 @@
+import { Helmet } from 'react-helmet';
 import { useParams } from "react-router-dom";
-import "../styles/List.scss"
 import { useSelector, useDispatch } from "react-redux";
 import { setListings } from "../redux/state";
-import { useEffect, useState } from "react";
-import Loader from "../components/Loader"
+import { useEffect, useState, useCallback } from "react";
 import Navbar from "../components/Navbar";
+import Loader from "../components/Loader";
 import ListingCard from "../components/ListingCard";
-import Footer from "../components/Footer"
+import ListingCardSell from "../components/ListingCardSell";
+import Footer from "../components/Footer";
 import Categorylist from "../components/Categorylist";
 import Pagination from "../components/Pagination";
-import { Helmet } from 'react-helmet';
+import "../styles/List.scss";
+
+const CATEGORIES = {
+  ALL: "ทั้งหมด",
+  RENT: "เช่า",
+  SELL: "ขาย",
+};
+
+const LISTINGS_URL = "http://kkagency-api.onrender.com/properties";
+const LISTINGS_SELL_URL = "http://kkagency-api.onrender.com/propertiesforsell";
 
 const TypePage = () => {
-  //Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
+  const [loading, setLoading] = useState(true);
+  const { type } = useParams();
+  const listings = useSelector((state) => state.listings);
+  const dispatch = useDispatch();
+  const [selectedCategory, setSelectedCategory] = useState(CATEGORIES.ALL);
 
-  const [loading, setLoading] = useState(true)
-  const { type } = useParams()
-  const listings = useSelector((state) => state.listings)
-  const dispatch = useDispatch()
-  const getSearchListings = async () => {
-    try {
-      const response = await fetch(`https://kkagency-api.onrender.com/properties/type/${type}`, {
-        method: "GET"
-      })
-
-      const data = await response.json()
-      dispatch(setListings({ listings: data }))
-      setLoading(false)
-    } catch (err) {
-      console.log("Fetch Search List failed!", err.message)
+  const fetchListings = async (url, type) => {
+    const response = await fetch(url, { method: "GET" });
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data from ${url}`);
     }
-  }
+    const data = await response.json();
+    return data.map((item) => ({ ...item, listingType: type }));
+  };
+
+  const getSearchListings = useCallback(async () => {
+    try {
+      setLoading(true);
+      let data = [];
+
+      if (selectedCategory === CATEGORIES.RENT) {
+        data = await fetchListings(`${LISTINGS_URL}/type/${type}`, CATEGORIES.RENT);
+      } else if (selectedCategory === CATEGORIES.SELL) {
+        data = await fetchListings(`${LISTINGS_SELL_URL}/type/${type}`, CATEGORIES.SELL);
+      } else {
+        const [dataRent, dataSell] = await Promise.all([
+          fetchListings(`${LISTINGS_URL}/type/${type}`, CATEGORIES.RENT),
+          fetchListings(`${LISTINGS_SELL_URL}/type/${type}`, CATEGORIES.SELL),
+        ]);
+        data = [...dataRent, ...dataSell];
+      }
+
+      dispatch(setListings({ listings: data }));
+    } catch (err) {
+      console.error("Fetch Listings Failed", err.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [selectedCategory, type, dispatch]);
 
   useEffect(() => {
-    getSearchListings()
-  }, [type])
+    getSearchListings();
+  }, [type, selectedCategory, getSearchListings]);
 
-  //get current posts and sortPosts
   const sortedPosts = listings?.length ? [...listings].sort(() => -1) : [];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
-  //change Page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const renderTitle = () => {
+    if (selectedCategory === CATEGORIES.RENT) {
+      return `รวมประกาศให้เช่า ${type}`;
+    } else if (selectedCategory === CATEGORIES.SELL) {
+      return `รวมประกาศขาย ${type}`;
+    } else {
+      return `รวมประกาศ ${type}`;
+    }
+  };
+
+  const renderNoListingsMessage = () => {
+    const messagePrefix = `ตอนนี้เรายังไม่มีประกาศ`;
+    const messageSuffix = selectedCategory === CATEGORIES.RENT ? "ให้เช่าเลย !!!" : selectedCategory === CATEGORIES.SELL ? "ขายเลย !!!" : "เลย !!!";
+
+    return (
+      <h2>
+        {messagePrefix}
+        <br />
+        {messageSuffix}
+        <br />
+        <img src="/assets/Logo sad.png" alt="logo" />
+      </h2>
+    );
+  };
 
   return (
     <>
       <Helmet>
-        <title>รวมประกาศที่พักให้เช่าในขอนแก่น ประเภท{type} | KK Agency</title>
-        <meta name="description" content="KKAgency รวมประกาศ ให้เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ็งร้าน เซ็งกิจการ ในจังหวัดขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
+        <title>รวมประกาศที่พักให้เช่าในขอนแก่น ประเภท{type} | ใกล้ฉัน</title>
+        <meta name="description" content="ใกล้ฉัน รวมประกาศ ขาย เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ้งร้าน เซ้งกิจการ ขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
       </Helmet>
 
       <Navbar />
       <Categorylist />
-      <h1 className="title-list">รวมประกาศ {type}</h1>
+      <h1 className="title-list">{renderTitle()}</h1>
+      <div className="buttons-container">
+        <div className='buttons-container2'>
+          <div className='buttons'>
+            {Object.values(CATEGORIES).map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={selectedCategory === category ? "active" : ""}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
       {loading ? (
         <Loader />
       ) : (
@@ -64,53 +132,20 @@ const TypePage = () => {
           {currentPosts.length === 0 ? (
             <div className="no-listings">
               <div className="no-listings-message">
-                <h2>ตอนนี้เรายังไม่มีประกาศ <br />
-                  "{type}" <br />
-                  ให้เช่าเลย !!! <br />
-                  <img src="/assets/sad.png" alt="logo" />
-                </h2>
+                {renderNoListingsMessage()}
               </div>
             </div>
           ) : (
             <div className="list">
-              {currentPosts.map(
-                ({
-                  _id,
-                  creator,
-                  aptSuite,
-                  listingPhotoPaths,
-                  bedroomCount,
-                  bathroomCount,
-                  area,
-                  city,
-                  province,
-                  country,
-                  category,
-                  type,
-                  contract,
-                  statusroom,
-                  price,
-                }) => (
-                  <ListingCard
-                    key={_id}
-                    listingId={_id}
-                    creator={creator}
-                    aptSuite={aptSuite}
-                    listingPhotoPaths={listingPhotoPaths}
-                    bedroomCount={bedroomCount}
-                    bathroomCount={bathroomCount}
-                    area={area}
-                    city={city}
-                    province={province}
-                    country={country}
-                    category={category}
-                    type={type}
-                    contract={contract}
-                    statusroom={statusroom}
-                    price={price}
-                  />
-                )
-              )}
+              {currentPosts.map((listing) => (
+                <div key={listing._id}>
+                  {listing.listingType === CATEGORIES.SELL ? (
+                    <ListingCardSell {...listing} />
+                  ) : (
+                    <ListingCard {...listing} />
+                  )}
+                </div>
+              ))}
             </div>
           )}
           {listings && (
@@ -128,4 +163,4 @@ const TypePage = () => {
   );
 };
 
-export default TypePage
+export default TypePage;

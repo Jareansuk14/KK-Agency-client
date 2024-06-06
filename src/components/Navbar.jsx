@@ -24,10 +24,10 @@ const Navbar = () => {
     <div className="navbar">
       <div className="logo">
         <a className="logobf" href="/">
-          <img src="/assets/icon2.png" alt="logo" />
+          <img src="/assets/Logo.png" alt="logo" />
         </a>
         <a className="logoaf" href="/">
-          <img src="/assets/icon1.png" alt="logo" />
+          <img src="/assets/Logo wow.png" alt="logo" />
         </a>
       </div>
 
@@ -50,7 +50,7 @@ const Navbar = () => {
           >
             <Hamburger
               size={25}
-              color="#24355A"
+              color="#63c5da"
               duration={0.8}
               toggled={isOpen}
               toggle={setOpen}
@@ -59,7 +59,7 @@ const Navbar = () => {
 
           <div className="profile">
             {!user ? (
-              <Person sx={{ fontSize: 28, color: "#969393" }} />
+              <Person sx={{ fontSize: 28, color: "#63c5da" }} />
             ) : (
               <img
                 src={`https://kkagency-api.onrender.com/${user.profileImagePath.replace(
@@ -81,7 +81,7 @@ const Navbar = () => {
             <Link to="/properties/type/หอพัก โรงแรม" className="type-bar" onClick={handleClick}>หอพัก/โรงแรม</Link>
             <Link to="/properties/type/อาคารพาณิชย์" className="type-bar" onClick={handleClick}>อาคารพาณิชย์</Link>
             <Link to="/properties/type/สำนักงาน" className="type-bar" onClick={handleClick}>สำนักงาน</Link>
-            <Link to="/properties/type/เซ็งธุรกิจ" className="type-bar" onClick={handleClick}>เซ็งธุรกิจ</Link>
+            <Link to="/properties/type/เซ้งธุรกิจ" className="type-bar" onClick={handleClick}>เซ้งธุรกิจ</Link>
             <Link to="/properties/type/ที่ดิน" className="type-bar" onClick={handleClick}>ที่ดิน</Link>
             <div className="range-price">
               <p>ช่วงราคา (บาท)</p>
@@ -97,6 +97,8 @@ const Navbar = () => {
 
         {isOpen && user && (
           <div className="navbar_right_accountmenu">
+            <Link to="/create-listing">ลงประกาศเช่า</Link>
+            <Link to="/create-listing-forsell">ลงประกาศขาย</Link>
             <Link to="/login" onClick={() => { dispatch(setLogout()); }}>ออกจากระบบ</Link>
           </div>
         )}
