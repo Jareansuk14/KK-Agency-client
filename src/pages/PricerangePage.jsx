@@ -29,7 +29,7 @@ const PricerangePage = () => {
   // Fetch listings based on price range
   const getSearchListings = async () => {
     try {
-      const response = await fetch(`http://kkagency-api.onrender.com/properties/pricerange/${pricerange}`, {
+      const response = await fetch(`https://kkagency-api.onrender.com/properties/pricerange/${pricerange}`, {
         method: "GET",
       });
 

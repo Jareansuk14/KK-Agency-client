@@ -12,8 +12,8 @@ import Categorylist from "../components/Categorylist";
 import Pagination from "../components/Pagination";
 import "../styles/List.scss";
 
-const LISTINGS_URL = "http://kkagency-api.onrender.com/properties";
-const LISTINGS_SELL_URL = "http://kkagency-api.onrender.com/propertiesforsell";
+const LISTINGS_URL = "https://kkagency-api.onrender.com/properties";
+const LISTINGS_SELL_URL = "https://kkagency-api.onrender.com/propertiesforsell";
 
 const SearchPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -69,7 +69,7 @@ const SearchPage = () => {
       <br />
       กรุณาลองใหม่อีกครั้ง !!!
       <br />
-      <img src="/assets/sad.png" alt="logo" />
+      <img src="/assets/Logo sad.png" alt="logo" />
     </h2>
   );
 

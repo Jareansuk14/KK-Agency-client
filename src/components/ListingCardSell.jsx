@@ -57,7 +57,7 @@ const ListingCardSell = ({
     const patchWishList = async () => {
         if (user?._id !== creator._id) {
             const response = await fetch(
-                `http://localhost:3001/users/${user?._id}/${listingId}`,
+                `https://kkagency-api.onrender.com/users/${user?._id}/${listingId}`,
                 {
                     method: "PATCH",
                     header: {
@@ -86,7 +86,7 @@ const ListingCardSell = ({
                     {listingPhotoPaths?.map((photo, index) => (
                         <div key={index} className="slide">
                             <img
-                                src={`http://localhost:3001/${photo?.replace("public", "")}`}
+                                src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
                                 alt={`photo ${index + 1}`}
                             />
                             <div
@@ -128,7 +128,7 @@ const ListingCardSell = ({
                         {listingPhotoPaths?.map((photo, index) => (
                             <SwiperSlide key={index} className="slide-m">
                                 <img
-                                    src={`http://localhost:3001/${photo?.replace("public", "")}`}
+                                    src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
                                     alt={`photo ${index + 1}`}
                                 />
                             </SwiperSlide>

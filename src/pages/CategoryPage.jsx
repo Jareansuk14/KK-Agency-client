@@ -18,8 +18,8 @@ const CATEGORIES = {
   SELL: "ขาย",
 };
 
-const LISTINGS_URL = "http://kkagency-api.onrender.com/properties";
-const LISTINGS_SELL_URL = "http://kkagency-api.onrender.com/propertiesforsell";
+const LISTINGS_URL = "https://kkagency-api.onrender.com/properties";
+const LISTINGS_SELL_URL = "https://kkagency-api.onrender.com/propertiesforsell";
 
 const CategoryPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -87,7 +87,7 @@ const CategoryPage = () => {
         <br />
         {messageSuffix}
         <br />
-        <img src="/assets/sad.png" alt="logo" />
+        <img src="/assets/Logo sad.png" alt="logo" />
       </h2>
     );
   };

@@ -7,8 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setListings } from "../redux/state";
 import Paginationhome from "./Paginationhome";
 
-const LISTINGS_URL = "http://kkagency-api.onrender.com/properties";
-const LISTINGS_SELL_URL = "http://kkagency-api.onrender.com/propertiesforsell";
+const LISTINGS_URL = "https://kkagency-api.onrender.com/properties";
+const LISTINGS_SELL_URL = "https://kkagency-api.onrender.com/propertiesforsell";
 
 const CATEGORIES = {
   ALL: "ทั้งหมด",

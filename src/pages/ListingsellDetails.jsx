@@ -35,7 +35,7 @@ const ListingsellDetails = () => {
   const getListingDetails = async () => {
     try {
       const response = await fetch(
-        `http:/kkagency-api.onrender.com/propertiesforsell/${listingId}`,
+        `https:/kkagency-api.onrender.com/propertiesforsell/${listingId}`,
         {
           method: "GET",
         }
@@ -83,7 +83,7 @@ const ListingsellDetails = () => {
                   <SwiperSlide key={index} className="slide">
                     <div className="swiper-container">
                       <img
-                        src={`http://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
+                        src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
                         alt={`photo ${index + 1}`}
                         onClick={() => {
                           navigate(`/propertiessell/fullimg/${listingId}`);

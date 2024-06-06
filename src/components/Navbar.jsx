@@ -38,7 +38,7 @@ const Navbar = () => {
         <Link to="/properties/type/หอพัก โรงแรม" className="type-menu-bar" onClick={top}>หอพัก/โรงแรม</Link>
         <Link to="/properties/type/อาคารพาณิชย์" className="type-menu-bar" onClick={top}>อาคารพาณิชย์</Link>
         <Link to="/properties/type/สำนักงาน" className="type-menu-bar" onClick={top}>สำนักงาน</Link>
-        <Link to="/properties/type/เซ็งธุรกิจ" className="type-menu-bar" onClick={top}>เซ็งธุรกิจ</Link>
+        <Link to="/properties/type/เซ้งธุรกิจ" className="type-menu-bar" onClick={top}>เซ้งธุรกิจ</Link>
         <Link to="/properties/type/ที่ดิน" className="type-menu-bar" onClick={top}>ที่ดิน</Link>
       </div>
 

@@ -18,8 +18,8 @@ const CATEGORIES = {
   SELL: "ขาย",
 };
 
-const LISTINGS_URL = "http://kkagency-api.onrender.com/properties";
-const LISTINGS_SELL_URL = "http://kkagency-api.onrender.com/propertiesforsell";
+const LISTINGS_URL = "https://kkagency-api.onrender.com/properties";
+const LISTINGS_SELL_URL = "https://kkagency-api.onrender.com/propertiesforsell";
 
 const TypePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
