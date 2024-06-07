@@ -11,8 +11,8 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
-const LISTINGS_URL = "https://https://kkagency-api.onrender.com/properties";
-const LISTINGS_SELL_URL = "https://https://kkagency-api.onrender.com/propertiesforsell";
+const LISTINGS_URL = "https://kkagency-api.onrender.com/properties";
+const LISTINGS_SELL_URL = "https://kkagency-api.onrender.com/propertiesforsell";
 
 const FullimgPage = ({ isForSale }) => {
   const [loading, setLoading] = useState(true);
