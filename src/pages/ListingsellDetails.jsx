@@ -35,7 +35,7 @@ const ListingsellDetails = () => {
   const getListingDetails = async () => {
     try {
       const response = await fetch(
-        `https:/kkagency-api.onrender.com/propertiesforsell/${listingId}`,
+        `https://kkagency-api.onrender.com/propertiesforsell/${listingId}`,
         {
           method: "GET",
         }
