@@ -203,6 +203,19 @@
     }
   }
 
+  h3 {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .verified{
+    padding: 0px;
+    max-width: 20px;
+    max-height: 20px;
+  }
+
   p {
     max-width: 800px;
     margin-top: 20px;

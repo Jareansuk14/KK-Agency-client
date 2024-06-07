@@ -115,7 +115,7 @@ const ListingDetails = () => {
                 )}`}
               />
               <h3>
-                Create post by {listing.creator.firstName} {listing.creator.lastName}
+                Create post by {listing.creator.firstName} {listing.creator.lastName} <img className="verified" src="/assets/verified.png" alt="" />
               </h3>
             </div>
             <hr />
