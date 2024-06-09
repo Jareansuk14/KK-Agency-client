@@ -18,7 +18,7 @@ const CATEGORIES = {
 
 const Listings = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(20);
+  const [postsPerPage] = useState(12);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(CATEGORIES.ALL);
   const [activeButton, setActiveButton] = useState(CATEGORIES.ALL); // New state

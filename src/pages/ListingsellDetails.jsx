@@ -109,14 +109,9 @@ const ListingsellDetails = () => {
             <hr />
 
             <div className="profile">
-              <img
-                src={`https://kkagency-api.onrender.com/${listing.creator.profileImagePath.replace(
-                  "public",
-                  ""
-                )}`}
-              />
+              <img src="/assets/Logo.png" alt="" />
               <h3>
-                Create post by {listing.creator.firstName} {listing.creator.lastName} <img className="verified" src="/assets/verified.png" alt="" /> 
+                Create post by {listing.creator.firstName} {listing.creator.lastName} <img className="verified" src="/assets/verified.png" alt="" />
               </h3>
             </div>
             <hr />
