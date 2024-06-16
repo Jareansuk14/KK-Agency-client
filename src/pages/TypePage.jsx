@@ -23,7 +23,7 @@ const LISTINGS_SELL_URL = "https://kkagency-api.onrender.com/propertiesforsell";
 
 const TypePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage, setPostsPerPage] = useState(12);
   const [loading, setLoading] = useState(true);
   const { type } = useParams();
   const listings = useSelector((state) => state.listings);
@@ -68,7 +68,7 @@ const TypePage = () => {
     getSearchListings();
   }, [type, selectedCategory, getSearchListings]);
 
-  const sortedPosts = listings?.length ? [...listings].sort(() => -1) : [];
+  const sortedPosts = listings?.length ? [...listings].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : [];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);

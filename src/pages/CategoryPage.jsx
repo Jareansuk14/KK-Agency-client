@@ -23,7 +23,7 @@ const LISTINGS_SELL_URL = "https://kkagency-api.onrender.com/propertiesforsell";
 
 const CategoryPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(12);
   const [loading, setLoading] = useState(true);
   const { category } = useParams();
   const listings = useSelector((state) => state.listings);

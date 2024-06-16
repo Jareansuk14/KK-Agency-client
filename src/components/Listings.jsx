@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
-import "../styles/Listings.scss";
+import React, { useState, useEffect, useCallback } from "react";
+import { Helmet } from 'react-helmet';
+import { useSelector, useDispatch } from "react-redux";
+import { setListings } from "../redux/state";
+import Loader from "./Loader";
 import ListingCard from "./ListingCard";
 import ListingCardSell from "./ListingCardSell";
-import Loader from "./Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { setListings } from "../redux/state";
 import Paginationhome from "./Paginationhome";
+import "../styles/Listings.scss";
 
 const LISTINGS_URL = "https://kkagency-api.onrender.com/properties";
 const LISTINGS_SELL_URL = "https://kkagency-api.onrender.com/propertiesforsell";
@@ -21,10 +22,8 @@ const Listings = () => {
   const [postsPerPage] = useState(12);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(CATEGORIES.ALL);
-  const [activeButton, setActiveButton] = useState(CATEGORIES.ALL); // New state
-
-  const dispatch = useDispatch();
   const listings = useSelector((state) => state.listings);
+  const dispatch = useDispatch();
 
   const fetchListings = async (url, type) => {
     const response = await fetch(url, { method: "GET" });
@@ -35,7 +34,7 @@ const Listings = () => {
     return data.map((item) => ({ ...item, listingType: type }));
   };
 
-  const getFeedListings = async () => {
+  const getFeedListings = useCallback(async () => {
     try {
       setLoading(true);
       let data = [];
@@ -58,69 +57,70 @@ const Listings = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [selectedCategory, dispatch]);
 
   useEffect(() => {
     getFeedListings();
-  }, [selectedCategory]);
+  }, [getFeedListings]);
 
-  const sortedPosts = listings?.length ? [...listings].sort(() => -1) : [];
+  const sortedPosts = listings?.length ? [...listings].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : [];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
-    setActiveButton(category); // Update active button state
-  };
+  const paginate = useCallback((pageNumber) => setCurrentPage(pageNumber), []);
 
   return (
-    <div className="listings-container">
-      <h1 className="title-promo">รวมประกาศทั้งหมด</h1>
-      <div className="buttons-container">
-        <div className="buttons-container2">
-          <div className="buttons">
-            {Object.values(CATEGORIES).map((category) => (
-              <button
-                key={category}
-                onClick={() => handleCategoryClick(category)}
-                className={activeButton === category ? "active" : ""}
-              >
-                {category}
-              </button>
-            ))}
+    <>
+      <Helmet>
+        <title>รวมประกาศทั้งหมด | ใกล้ฉัน</title>
+        <meta name="description" content="รวมประกาศทั้งหมด ขาย เช่า บ้าน คอนโด และอื่นๆ อัพเดททุกวัน" />
+      </Helmet>
+
+      <div className="listings-container">
+        <h1 className="title-promo">รวมประกาศทั้งหมด</h1>
+        <div className="buttons-container">
+          <div className="buttons-container2">
+            <div className="buttons">
+              {Object.values(CATEGORIES).map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={selectedCategory === category ? "active" : ""}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
+
+        {loading ? (
+          <Loader />
+        ) : (
+          <div className="listings">
+            {currentPosts.map((listing) => (
+              <div key={listing._id}>
+                {listing.listingType === CATEGORIES.SELL ? (
+                  <ListingCardSell {...listing} />
+                ) : (
+                  <ListingCard {...listing} />
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+        {listings.length > 0 && (
+          <Paginationhome
+            totalPosts={listings.length}
+            postsPerPage={postsPerPage}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
+        )}
       </div>
-      
-      {loading ? (
-        <Loader />
-      ) : (
-        <div className="listings">
-          {currentPosts.map((listing) => (
-            <div key={listing._id}>
-              {listing.listingType === CATEGORIES.SELL ? (
-                <ListingCardSell {...listing} />
-              ) : (
-                <ListingCard {...listing} />
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-      {listings && (
-        <Paginationhome
-          totalPosts={listings.length}
-          postsPerPage={postsPerPage}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}
-        />
-      )}
-    </div>
+    </>
   );
 };
 
 export default Listings;
-
