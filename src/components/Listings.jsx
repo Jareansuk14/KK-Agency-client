@@ -63,7 +63,7 @@ const Listings = () => {
     getFeedListings();
   }, [getFeedListings]);
 
-  const sortedPosts = listings && listings.length > 0 ? [...listings].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : [];
+  const sortedPosts = listings?.length ? [...listings].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : [];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
@@ -110,7 +110,7 @@ const Listings = () => {
             ))}
           </div>
         )}
-        {listings && listings.length > 0 && (
+        {listings.length > 0 && (
           <Paginationhome
             totalPosts={listings.length}
             postsPerPage={postsPerPage}
