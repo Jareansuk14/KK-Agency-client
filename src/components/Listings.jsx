@@ -26,7 +26,7 @@ const Listings = () => {
   const dispatch = useDispatch();
 
   const fetchListings = async (url, type) => {
-    const response = await fetch(url, { method: "GET" });
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Failed to fetch data from ${url}`);
     }
@@ -63,7 +63,9 @@ const Listings = () => {
     getFeedListings();
   }, [getFeedListings]);
 
-  const sortedPosts = listings?.length ? [...listings].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : [];
+  const sortedPosts = listings?.length
+    ? [...listings].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    : [];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
