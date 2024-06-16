@@ -69,7 +69,7 @@ const CategoryPage = () => {
     getSearchListings();
   }, [getSearchListings]);
 
-  const sortedPosts = listings?.length ? [...listings].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : [];
+  const sortedPosts = listings && listings.length > 0 ? [...listings].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) : [];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
@@ -140,7 +140,7 @@ const CategoryPage = () => {
               ))}
             </div>
           )}
-          {listings.length > 0 && (
+          {listings && listings.length > 0 && (
             <Pagination
               totalPosts={listings.length}
               postsPerPage={postsPerPage}
