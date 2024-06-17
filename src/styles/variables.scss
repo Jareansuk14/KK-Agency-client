@@ -1,12 +1,10 @@
 $pinkred: #F8395A;
 $blue: #63c5da;
-$orange:#f4a261;
 $darkorange:#f99624;
 $darkblue:#242f47;
 $lightgrey: #fff8f1;
 $grey: #bdb9b9;
 $darkgrey: #969393;
-$green: #9cf80e;
 $egg: #f8f2eb;
 
 
@@ -30,7 +28,10 @@ $egg: #f8f2eb;
 :export {
   pinkred: $pinkred;
   blue: $blue;
+  darkorange:$darkorange;
+  darkblue:$darkblue;
   lightgrey: $lightgrey;
   grey: $grey;
   darkgrey: $darkgrey;
+  egg:$egg;
 }
