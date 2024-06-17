@@ -7,7 +7,6 @@ import CreateListing from "./pages/CreateListing";
 import CreateListingforsell from "./pages/CreateListingforsell";
 import ListingDetails from "./pages/ListingDetails";
 import ListingsellDetails from "./pages/ListingsellDetails";
-import WishList from "./pages/WishList";
 import CategoryPage from "./pages/CategoryPage";
 import SearchPage from "./pages/SearchPage";
 import TypePage from "./pages/TypePage";
@@ -34,7 +33,6 @@ function App() {
         <Route path="/properties/pricerange/:pricerange" element={<PricerangePage />} />
         <Route path="/properties/type/:type" element={<TypePage />} />
         <Route path="/properties/search/:search" element={<SearchPage />} />
-        <Route path="/:userId/wishList" element={<WishList />} />
         <Route path="*" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
