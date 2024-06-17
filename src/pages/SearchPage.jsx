@@ -76,7 +76,7 @@ const SearchPage = () => {
   return (
     <>
       <Helmet>
-        <title>{search} | kraichan</title>
+        <title>{search} | ใกล้ฉัน</title>
         <meta name="description" content="ใกล้ฉัน รวมประกาศ ขาย เช่า บ้าน คอนโด ทาวน์เฮ้าส์/ทาวน์โฮม หอพัก/โรงแรม อาคารพาณิชย์ สำนักงาน ที่ดิน เซ้งร้าน เซ้งกิจการ ขอนแก่น มีหลายโครงการ รายละเอียดครบ ค้นหาง่าย อัพเดททุกวัน" />
       </Helmet>
 
