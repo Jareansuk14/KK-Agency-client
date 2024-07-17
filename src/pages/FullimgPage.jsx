@@ -51,7 +51,7 @@ const FullimgPage = ({ isForSale }) => {
     <>
       {listing && listing.listingPhotoPaths && listing.listingPhotoPaths.length > 0 ? (
         <div className="fullimg-container">
-          <h1 className="close" onClick={handleNavigation}><IoClose /></h1>
+          <div className="close"><h1 onClick={handleNavigation}><IoClose /></h1></div>
           <Swiper
             speed={0}
             spaceBetween={0}
