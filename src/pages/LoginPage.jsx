@@ -17,7 +17,7 @@ const LoginPage = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch("https://kkagency-api.onrender.com/auth/login", {
+      const response = await fetch("https://stellar-freedom-production.up.railway.app/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

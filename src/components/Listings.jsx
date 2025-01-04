@@ -8,8 +8,8 @@ import ListingCardSell from "./ListingCardSell";
 import Paginationhome from "./Paginationhome";
 import "../styles/Listings.scss";
 
-const LISTINGS_URL = "https://kkagency-api.onrender.com/properties";
-const LISTINGS_SELL_URL = "https://kkagency-api.onrender.com/propertiesforsell";
+const LISTINGS_URL = "https://stellar-freedom-production.up.railway.app/properties";
+const LISTINGS_SELL_URL = "https://stellar-freedom-production.up.railway.app/propertiesforsell";
 
 const CATEGORIES = {
   ALL: "ทั้งหมด",

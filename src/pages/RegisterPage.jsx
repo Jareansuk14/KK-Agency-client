@@ -40,7 +40,7 @@ const RegisterPage = () => {
         register_form.append(key, formData[key])
       }
 
-      const response = await fetch("https://kkagency-api.onrender.com/auth/register", {
+      const response = await fetch("https://stellar-freedom-production.up.railway.app/auth/register", {
         method: "POST",
         body: register_form
       })

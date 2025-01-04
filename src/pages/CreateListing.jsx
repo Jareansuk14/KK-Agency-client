@@ -137,7 +137,7 @@ const CreateListing = () => {
       });
 
       /* Send a POST request to server */
-      const response = await fetch("https://kkagency-api.onrender.com/properties/create", {
+      const response = await fetch("https://stellar-freedom-production.up.railway.app/properties/create", {
         method: "POST",
         body: listingForm,
       });

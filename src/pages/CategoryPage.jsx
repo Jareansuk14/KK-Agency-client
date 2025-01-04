@@ -18,8 +18,8 @@ const CATEGORIES = {
   SELL: "ขาย",
 };
 
-const LISTINGS_URL = "https://kkagency-api.onrender.com/properties";
-const LISTINGS_SELL_URL = "https://kkagency-api.onrender.com/propertiesforsell";
+const LISTINGS_URL = "https://stellar-freedom-production.up.railway.app/properties";
+const LISTINGS_SELL_URL = "https://stellar-freedom-production.up.railway.app/propertiesforsell";
 
 const CategoryPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
