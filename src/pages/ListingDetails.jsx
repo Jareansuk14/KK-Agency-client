@@ -34,7 +34,7 @@ const ListingDetails = () => {
   const getListingDetails = async () => {
     try {
       const response = await fetch(
-        `https://stellar-freedom-production.up.railway.app/properties/${listingId}`,
+        `https://kkagency-api.onrender.com/properties/${listingId}`,
         {
           method: "GET",
         }
@@ -82,7 +82,7 @@ const ListingDetails = () => {
                   <SwiperSlide key={index} className="slide">
                     <div className="swiper-container">
                       <img
-                        src={`https://stellar-freedom-production.up.railway.app/${photo?.replace("public", "")}`}
+                        src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
                         alt={`photo ${index + 1}`}
                         onClick={() => {
                           navigate(`/properties/fullimg/${listingId}`);

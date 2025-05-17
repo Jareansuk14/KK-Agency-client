@@ -62,7 +62,7 @@ const Navbar = () => {
               <Person sx={{ fontSize: 28, color: "#63c5da" }} />
             ) : (
               <img
-                src={`https://stellar-freedom-production.up.railway.app/${user.profileImagePath.replace(
+                src={`https://kkagency-api.onrender.com/${user.profileImagePath.replace(
                   "public",
                   ""
                 )}`}

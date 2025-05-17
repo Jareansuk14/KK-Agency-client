@@ -11,8 +11,8 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
-const LISTINGS_URL = "https://stellar-freedom-production.up.railway.app/properties";
-const LISTINGS_SELL_URL = "https://stellar-freedom-production.up.railway.app/propertiesforsell";
+const LISTINGS_URL = "https://kkagency-api.onrender.com/properties";
+const LISTINGS_SELL_URL = "https://kkagency-api.onrender.com/propertiesforsell";
 
 const FullimgPage = ({ isForSale }) => {
   const [loading, setLoading] = useState(true);
@@ -68,7 +68,7 @@ const FullimgPage = ({ isForSale }) => {
               <SwiperSlide key={index} className="slide">
                 <div className="swiper-container">
                   <img
-                    src={`https://stellar-freedom-production.up.railway.app/${photo?.replace("public", "")}`}
+                    src={`https://kkagency-api.onrender.com/${photo?.replace("public", "")}`}
                     alt={`photo ${index + 1}`}
                   />
                 </div>

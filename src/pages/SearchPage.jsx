@@ -12,8 +12,8 @@ import Categorylist from "../components/Categorylist";
 import Pagination from "../components/Pagination";
 import "../styles/List.scss";
 
-const LISTINGS_URL = "https://stellar-freedom-production.up.railway.app/properties";
-const LISTINGS_SELL_URL = "https://stellar-freedom-production.up.railway.app/propertiesforsell";
+const LISTINGS_URL = "https://kkagency-api.onrender.com/properties";
+const LISTINGS_SELL_URL = "https://kkagency-api.onrender.com/propertiesforsell";
 
 const SearchPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
