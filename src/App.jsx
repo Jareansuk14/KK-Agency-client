@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="/register" element={<RegisterPage />} /> */}
+        <Route path="/register" element={<RegisterPage />} /> 
         <Route path="/login-onlyadmin" element={<LoginPage />} />
         <Route path="/create-listing" element={<CreateListing />} />
         <Route path="/create-listing-forsell" element={<CreateListingforsell />} />
